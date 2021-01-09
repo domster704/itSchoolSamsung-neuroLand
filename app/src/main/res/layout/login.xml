@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp">
+
+    <EditText
+        android:id="@+id/EndLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Login"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/EndPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:autoText="false"
+        android:hint="Password"
+        android:password="false"
+        android:textColorLink="#009688"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Login"
+        android:textSize="30sp"
+        android:onClick="goToHomeAfterLogin"/>
+
+    <TextView
+        android:id="@+id/registerLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:onClick="goToReg"
+        android:text="Click here to register"
+        android:textColor="#0D47A1"
+        android:textSize="24sp" />
+
+</LinearLayout>

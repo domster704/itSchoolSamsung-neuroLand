@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyProject_NeuroLand</string>
+    <string name="last_requests">Last requests</string>
+    <string name="gps">GPS</string>
+    <string name="ar">AR</string>
+    <string name="web">WEB</string>
 </resources>
