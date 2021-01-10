@@ -4,4 +4,12 @@
     <string name="gps">GPS</string>
     <string name="ar">AR</string>
     <string name="web">WEB</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="successLogin">Вход был успешным</string>
+    <string name="wrongLogin">Неверно логин или пароль!</string>
+    <string name="emptyLogReg">Вы не вели логин и пароль</string>
+    <string name="emptyLog">Вы не вели логин</string>
+    <string name="emptyReg">Вы не вели пароль</string>
+    <string name="shortLog">Логин слишком короткий</string>
+    <string name="shortReg">Пароль слишком короткий</string>
 </resources>

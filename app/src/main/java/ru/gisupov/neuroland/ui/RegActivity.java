@@ -1,28 +1,21 @@
-package com.example.myproject_neuroland;
+package ru.gisupov.neuroland.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
+import ru.gisupov.neuroland.R;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
 public class RegActivity extends AppCompatActivity {
 
-    public final static String REG_ACTIVITY_USER_LOGIN = "com.example.myproject_neuroland.RegActivity.LOGIN";
-    public final static String REG_ACTIVITY_USER_PASSWORD = "com.example.myproject_neuroland.RegActivity.PASSWORD";
+    public final static String REG_ACTIVITY_USER_LOGIN = "com.example.myproject_neuroland.ui.RegActivity.LOGIN";
+    public final static String REG_ACTIVITY_USER_PASSWORD = "com.example.myproject_neuroland.ui.RegActivity.PASSWORD";
 
     public final static String FILE_NAME = "personData.txt";
 
@@ -40,6 +33,32 @@ public class RegActivity extends AppCompatActivity {
         EditText userName = (EditText) findViewById(R.id.BeginLogin);
         EditText userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
         EditText userPassword2 = (EditText) findViewById(R.id.BeginPassword2);
+
+        short loginSize = (short) userName.getText().length();
+        short passSize = (short) userPassword1.getText().length();
+
+        if (loginSize == 0 && passSize == 0) {
+            // the both fields are empty
+            Toast.makeText(getApplicationContext(), R.string.emptyLogReg, Toast.LENGTH_SHORT).show();
+            return;
+        } else if (loginSize == 0) {
+            // the login field is empty
+            Toast.makeText(getApplicationContext(), R.string.emptyLog, Toast.LENGTH_SHORT).show();
+            return;
+        } else if (passSize == 0) {
+            //the password field is empty
+            Toast.makeText(getApplicationContext(), R.string.emptyReg, Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            // all field are are entered
+            if (passSize < 8) {
+                Toast.makeText(getApplicationContext(), R.string.shortReg, Toast.LENGTH_SHORT).show();
+                return;
+            } else if (loginSize < 4) {
+                Toast.makeText(getApplicationContext(), R.string.shortLog, Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
 
         String login = userName.getText().toString();
         String pass1 = userPassword1.getText().toString();

@@ -1,25 +1,17 @@
-package com.example.myproject_neuroland;
+package ru.gisupov.neuroland.ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
+import ru.gisupov.neuroland.R;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -60,12 +52,12 @@ public class LoginActivity extends AppCompatActivity {
         EditText pass = (EditText) findViewById(R.id.EndPassword);
 
         if (login.getText().toString().equals(RegActivity.userLoginFromFile) && pass.getText().toString().equals(RegActivity.userPasswordFromFile)) {
-            Toast.makeText(getApplicationContext(), "Вход был успешным", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.successLogin, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(getApplicationContext(), "Неверно логин или пароль!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.wrongLogin, Toast.LENGTH_SHORT).show();
         }
 
     }
