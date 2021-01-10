@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#E5E5E5"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="ru.gisupov.neuroland.ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -58,6 +58,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text=" ar "
+            android:onClick="goToAr"
             app:backgroundTint="#673AB7"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"

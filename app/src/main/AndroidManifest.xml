@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myproject_neuroland">
+    package="ru.gisupov.neuroland">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -9,14 +16,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject_NeuroLand">
-        <activity android:name=".GPSActivity"/>
-        <activity android:name=".ARActivity"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegActivity"/>
-        <activity android:name=".WebChooseActivity"/>
-        <activity android:name=".MainActivity">
+
+        <activity android:name="ru.gisupov.neuroland.ui.GPSActivity" />
+        <activity android:name="ru.gisupov.neuroland.ui.ARActivity" />
+        <activity android:name="ru.gisupov.neuroland.ui.LoginActivity" />
+        <activity android:name="ru.gisupov.neuroland.ui.RegActivity" />
+        <activity android:name="ru.gisupov.neuroland.ui.WebChooseActivity" />
+        <activity android:name="ru.gisupov.neuroland.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
