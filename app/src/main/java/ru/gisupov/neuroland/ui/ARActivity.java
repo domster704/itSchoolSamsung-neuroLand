@@ -1,8 +1,10 @@
-package com.example.myproject_neuroland;
+package ru.gisupov.neuroland.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import ru.gisupov.neuroland.R;
 
 public class ARActivity extends AppCompatActivity {
 

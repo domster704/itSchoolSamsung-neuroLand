@@ -1,12 +1,12 @@
-package com.example.myproject_neuroland;
+package ru.gisupov.neuroland.ui;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuInflater;
 import android.view.View;
+
+import ru.gisupov.neuroland.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToAr(View view) {
+        Intent intent = new Intent(this, ARActivity.class);
         startActivity(intent);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.myproject_neuroland;
+package ru.gisupov.neuroland;
 
 import android.content.Context;
 
