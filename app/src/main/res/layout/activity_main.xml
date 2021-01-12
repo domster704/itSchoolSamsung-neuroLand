@@ -33,10 +33,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="goToWeb"
             android:text="@string/web"
             app:backgroundTint="#673AB7"
             app:cornerRadius="12sp"
-            tools:ignore="ButtonStyle"
+            tools:ignore="ButtonStyle,NestedWeights"
             tools:textSize="36sp" />
 
 
@@ -65,21 +66,14 @@
             tools:textSize="36sp" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button4"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_weight="0.1"
-        android:text="@string/last_requests"
-        app:backgroundTint="#673AB7"
-        app:cornerRadius="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="319dp"
-        tools:textSize="36sp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:text="Последние запросы"
+        android:textSize="36sp" />
 
     <Button
         android:id="@+id/button5"

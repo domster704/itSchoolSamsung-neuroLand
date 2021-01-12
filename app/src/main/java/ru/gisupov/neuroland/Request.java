@@ -5,10 +5,10 @@ import java.sql.Timestamp;
 public class Request {
     protected long id;
     protected Timestamp timestamp;
-    protected String data;
+//    protected String data;
 
     public Request() {
-        this.id = (long) Math.ceil((Math.random() * 100000));
+//        this.id = (long) Math.ceil((Math.random() * 100000)); // id будет задавать бд
 //        this.timestamp = ;
 //        this.data = ;
     }

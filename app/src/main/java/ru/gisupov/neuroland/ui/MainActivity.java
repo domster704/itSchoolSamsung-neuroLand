@@ -1,6 +1,7 @@
 package ru.gisupov.neuroland.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToAr(View view) {
         Intent intent = new Intent(this, ARActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToWeb(View view) {
+        Intent intent = new Intent (this, WebChooseActivity.class);
         startActivity(intent);
     }
 }

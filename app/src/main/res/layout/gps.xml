@@ -10,9 +10,9 @@
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_weight="1"
-        android:text="Карта"
+        android:text="@string/map"
         android:textSize="36sp"
         app:cornerRadius="10dp"
         android:onClick="goToMap"/>
@@ -24,7 +24,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
-        android:text="Кадастровая карта"
+        android:text="@string/cadastr_map"
         android:textSize="30sp"
         app:cornerRadius="10dp" />
 </LinearLayout>

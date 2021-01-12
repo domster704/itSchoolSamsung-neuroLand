@@ -15,17 +15,18 @@
         android:id="@+id/EndLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Login"
-        android:textSize="24sp" />
+        android:hint="@string/login"
+        android:textSize="24sp"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/EndPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textColorLink="#009688"
-        android:textSize="24sp" />
+        android:textSize="24sp"/>
 
     <Button
         android:id="@+id/loginButton"
@@ -35,7 +36,7 @@
         app:cornerRadius="12sp"
         android:background="#673AB7"
         android:onClick="goToHomeAfterLogin"
-        android:text="Login"
+        android:text="@string/login"
         android:textSize="30sp" />
 
     <TextView
@@ -45,7 +46,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:onClick="goToReg"
-        android:text="Click here to register"
+        android:text="@string/click_here_to_register"
         android:textColor="#0D47A1"
         android:textSize="24sp" />
 
