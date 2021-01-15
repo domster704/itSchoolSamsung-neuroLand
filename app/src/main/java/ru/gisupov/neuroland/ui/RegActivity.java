@@ -28,7 +28,7 @@ public class RegActivity extends AppCompatActivity {
         setContentView(R.layout.register);
     }
 
-    public void goToLoginAfterReg(View view) throws IOException {
+    public void goToLoginAfterReg(View view) {
         // getting data from register activity
         EditText userName = (EditText) findViewById(R.id.BeginLogin);
         EditText userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
@@ -74,7 +74,7 @@ public class RegActivity extends AppCompatActivity {
             setResult(RESULT_OK, answer);
             finish();
         } else {
-            Toast.makeText(getApplicationContext(), "Пароли не совпадают", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), R.string.password_not_same, Toast.LENGTH_SHORT).show();
         }
     }
 }

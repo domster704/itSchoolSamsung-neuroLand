@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject_NeuroLand" >
-        <activity android:name=".ui.GPSActivity" />
+        <activity android:name=".ui.GPSActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
         <activity android:name=".ui.ARActivity" />
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.RegActivity" />

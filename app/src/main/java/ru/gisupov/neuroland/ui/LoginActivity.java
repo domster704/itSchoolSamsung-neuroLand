@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void goToHomeAfterLogin(View view) throws IOException {
+    public void goToHomeAfterLogin(View view){
         EditText login = (EditText) findViewById(R.id.EndLogin);
         EditText pass = (EditText) findViewById(R.id.EndPassword);
 
