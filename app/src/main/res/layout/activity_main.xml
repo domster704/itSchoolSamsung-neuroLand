@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#E5E5E5"
     android:orientation="vertical"
-    tools:context="ru.gisupov.neuroland.ui.MainActivity">
+    tools:context="ru.gisupov.neuroland.main_ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"

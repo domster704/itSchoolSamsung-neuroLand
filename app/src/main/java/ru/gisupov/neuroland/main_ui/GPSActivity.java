@@ -1,4 +1,4 @@
-package ru.gisupov.neuroland.ui;
+package ru.gisupov.neuroland.main_ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

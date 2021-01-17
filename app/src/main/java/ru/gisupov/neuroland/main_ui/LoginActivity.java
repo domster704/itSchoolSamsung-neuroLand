@@ -1,4 +1,4 @@
-package ru.gisupov.neuroland.ui;
+package ru.gisupov.neuroland.main_ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import ru.gisupov.neuroland.R;
-
-import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 

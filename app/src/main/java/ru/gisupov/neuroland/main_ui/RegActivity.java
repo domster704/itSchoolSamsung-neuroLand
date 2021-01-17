@@ -1,4 +1,4 @@
-package ru.gisupov.neuroland.ui;
+package ru.gisupov.neuroland.main_ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,13 +9,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import ru.gisupov.neuroland.R;
-
-import java.io.IOException;
+import ru.gisupov.neuroland.RequestReg;
 
 public class RegActivity extends AppCompatActivity {
 
-    public final static String REG_ACTIVITY_USER_LOGIN = "com.example.myproject_neuroland.ui.RegActivity.LOGIN";
-    public final static String REG_ACTIVITY_USER_PASSWORD = "com.example.myproject_neuroland.ui.RegActivity.PASSWORD";
+    public final static String REG_ACTIVITY_USER_LOGIN = "com.example.myproject_neuroland.main_ui.RegActivity.LOGIN";
+    public final static String REG_ACTIVITY_USER_PASSWORD = "com.example.myproject_neuroland.main_ui.RegActivity.PASSWORD";
 
     public final static String FILE_NAME = "personData.txt";
 
@@ -33,6 +32,12 @@ public class RegActivity extends AppCompatActivity {
         EditText userName = (EditText) findViewById(R.id.BeginLogin);
         EditText userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
         EditText userPassword2 = (EditText) findViewById(R.id.BeginPassword2);
+
+        String login = userName.getText().toString();
+        String pass1 = userPassword1.getText().toString();
+        String pass2 = userPassword2.getText().toString();
+
+        RequestReg requestReg = new RequestReg(login, pass1, pass2);
 
         short loginSize = (short) userName.getText().length();
         short passSize = (short) userPassword1.getText().length();
@@ -59,10 +64,6 @@ public class RegActivity extends AppCompatActivity {
                 return;
             }
         }
-
-        String login = userName.getText().toString();
-        String pass1 = userPassword1.getText().toString();
-        String pass2 = userPassword2.getText().toString();
 
         if (pass1.equals(pass2)) {
             userLoginFromFile = login;
