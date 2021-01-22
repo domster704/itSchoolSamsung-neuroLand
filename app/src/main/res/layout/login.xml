@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="80dp"
     android:gravity="top"
     android:orientation="vertical"
     android:paddingLeft="20dp"
@@ -15,9 +16,9 @@
         android:id="@+id/EndLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:hint="@string/login"
-        android:textSize="24sp"
-        android:autofillHints="" />
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/EndPassword"
@@ -26,16 +27,14 @@
         android:layout_marginTop="10dp"
         android:hint="@string/password"
         android:textColorLink="#009688"
-        android:textSize="24sp"/>
+        android:textSize="24sp" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/loginButton2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:cornerRadius="12sp"
-        android:background="#673AB7"
-        android:onClick="goToHomeAfterLogin"
+        android:onClick="goToLoginAfterReg"
         android:text="@string/login"
         android:textSize="30sp" />
 
