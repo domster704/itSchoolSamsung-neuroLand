@@ -9,7 +9,7 @@ public class RequestReg extends Request{
     private String userLoginFromFile = "";
     private String userPasswordFromFile = "";
 
-    RequestReg(String login, String pass1, String pass2) {
+    public RequestReg(String login, String pass1, String pass2) {
         this.login = login;
         this.pass1 = pass1;
         this.pass2 = pass2;

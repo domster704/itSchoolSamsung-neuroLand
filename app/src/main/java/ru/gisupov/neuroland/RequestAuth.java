@@ -4,7 +4,7 @@ public class RequestAuth extends Request{
     public String login;
     public String password;
 
-    RequestAuth(String login, String password) {
+    public RequestAuth(String login, String password) {
         this.login = login;
         this.password = password;
     }
