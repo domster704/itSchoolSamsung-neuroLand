@@ -9,18 +9,16 @@ public class RequestReg extends Request{
     private String userLoginFromFile = "";
     private String userPasswordFromFile = "";
 
-    public RequestReg(String login, String pass1, String pass2) {
+    RequestReg(String login, String pass1, String pass2) {
         this.login = login;
         this.pass1 = pass1;
         this.pass2 = pass2;
 //        this.email = email;
     }
 
-    public boolean checkPassword() {
+    private boolean checkPassword() {
         // checking are pass1 and pass2 the same? checking pass1.length etc.
-        if (pass1.equals(pass2)) {
-
-        }
+        if (pass1.equals(pass2)) {}
         return true;
     }
 
