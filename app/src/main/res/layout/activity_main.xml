@@ -58,22 +58,52 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text=" ar "
             android:onClick="goToAr"
+            android:text=" ar "
             app:backgroundTint="#673AB7"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"
             tools:textSize="36sp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
-        android:gravity="center"
-        android:text="Последние запросы"
-        android:textSize="36sp" />
+        android:layout_weight="0.2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Последние запросы"
+            android:textSize="36sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:background="#E5E5E5" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1"
+                android:background="#E5E5E5"
+                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_48" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button5"
