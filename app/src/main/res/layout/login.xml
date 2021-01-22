@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="80dp"
-    android:gravity="top"
+    android:background="@color/background_app_color"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingTop="20dp"
@@ -18,6 +18,8 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:hint="@string/login"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <EditText
@@ -26,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="@string/password"
-        android:textColorLink="#009688"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <Button
@@ -34,8 +37,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/widget_color"
         android:onClick="goToLoginAfterReg"
         android:text="@string/login"
+        android:textColor="@color/text_color"
         android:textSize="30sp" />
 
     <TextView
@@ -46,7 +51,7 @@
         android:gravity="center"
         android:onClick="goToReg"
         android:text="@string/click_here_to_register"
-        android:textColor="#0D47A1"
+        android:textColor="@color/important_color"
         android:textSize="24sp" />
 
 </LinearLayout>

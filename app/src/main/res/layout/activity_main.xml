@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E5E5E5"
+    android:background="@color/background_app_color"
     android:orientation="vertical"
     tools:context="ru.gisupov.neuroland.main_ui.MainActivity">
 
@@ -35,7 +35,8 @@
             android:layout_weight="1"
             android:onClick="goToWeb"
             android:text="@string/web"
-            app:backgroundTint="#673AB7"
+            android:textColor="@color/text_color"
+            app:backgroundTint="@color/widget_color"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle,NestedWeights"
             tools:textSize="36sp" />
@@ -46,9 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/gps"
+            android:backgroundTint="@color/widget_color"
             android:onClick="goToGPS"
-            app:backgroundTint="#673AB7"
+            android:text="@string/gps"
+            android:textColor="@color/text_color"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"
             tools:textSize="36sp" />
@@ -60,7 +62,8 @@
             android:layout_weight="1"
             android:onClick="goToAr"
             android:text=" ar "
-            app:backgroundTint="#673AB7"
+            android:textColor="@color/text_color"
+            app:backgroundTint="@color/widget_color"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"
             tools:textSize="36sp" />
@@ -79,6 +82,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Последние запросы"
+            android:textColor="@color/text_color"
             android:textSize="36sp" />
 
         <LinearLayout
@@ -92,14 +96,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
-                android:background="#E5E5E5" />
+                android:background="@color/background_app_color" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:background="#E5E5E5"
+                android:background="@color/background_app_color"
                 app:srcCompat="@drawable/ic_baseline_arrow_drop_down_48" />
         </LinearLayout>
 
@@ -116,7 +120,8 @@
         android:layout_weight="1"
         android:onClick="goToLogin"
         android:text="login"
-        app:backgroundTint="#673AB7"
+        android:textColor="@color/text_color"
+        app:backgroundTint="@color/widget_color"
         app:cornerRadius="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

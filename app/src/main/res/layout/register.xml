@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="80dp"
-    android:gravity="top"
+    android:background="@color/background_app_color"
+    android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingTop="20dp"
@@ -17,6 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Login"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <EditText
@@ -25,6 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Password"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <EditText
@@ -33,6 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Repeat the password"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <Button
@@ -40,8 +46,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/widget_color"
         android:onClick="goToLoginAfterReg"
         android:text="Register"
+        android:textColor="@color/text_color"
         android:textSize="30sp" />
 
 </LinearLayout>

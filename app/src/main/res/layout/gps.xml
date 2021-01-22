@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_app_color"
     android:orientation="horizontal">
 
     <Button
@@ -12,10 +13,12 @@
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/widget_color"
+        android:onClick="goToMap"
         android:text="@string/map"
+        android:textColor="@color/text_color"
         android:textSize="36sp"
-        app:cornerRadius="10dp"
-        android:onClick="goToMap"/>
+        app:cornerRadius="10dp" />
 
     <Button
         android:id="@+id/button7"
@@ -24,7 +27,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1"
+        android:backgroundTint="@color/widget_color"
         android:text="@string/cadastr_map"
+        android:textColor="@color/text_color"
         android:textSize="30sp"
         app:cornerRadius="10dp" />
 </LinearLayout>
