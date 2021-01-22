@@ -29,4 +29,8 @@
     <string name="password_not_same">Пароли не совпадают</string>
     <string name="android_requirements">Требуется Android SDK 27 или выше</string>
     <string name="openGlEs_requirements">Требуется OpenGl ES 3.0 или выше</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>
