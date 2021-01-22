@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.gisupov.neuroland">
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the "MyLocation" functionality.
-    -->
-<!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
-<!--    <uses-permission android:name="android.permission.CAMERA" />-->
-
-    <!-- Limits app visibility in the Google Play Store to ARCore supported devices
-         (https://developers.google.com/ar/discover/supported-devices). -->
-<!--    <uses-feature android:name="android.hardware.camera.ar" />-->
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -20,14 +9,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject_NeuroLand">
         <activity
-            android:name=".main_ui.MainActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" >
+            android:name=".main_ui.MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--        <activity-->
+<!--            android:name=".main_ui.MainActivity"-->
+<!--            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">-->
+<!--&lt;!&ndash;            <intent-filter>&ndash;&gt;-->
+<!--&lt;!&ndash;                <action android:name="android.intent.action.MAIN" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <category android:name="android.intent.category.LAUNCHER" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </intent-filter>&ndash;&gt;-->
+<!--        </activity>-->
         <activity
             android:name=".main_ui.GPSActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
@@ -35,7 +34,10 @@
         <activity android:name=".main_ui.LoginActivity" />
         <activity android:name=".main_ui.RegActivity" />
         <activity android:name=".main_ui.WebChooseActivity" />
-        <meta-data android:name="com.google.ar.core" android:value="required" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
     </application>
 
 </manifest>
