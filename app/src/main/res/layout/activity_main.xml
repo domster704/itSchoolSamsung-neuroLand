@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:text="@string/web"
             android:textColor="@color/text_color"
-            app:backgroundTint="@color/widget_color"
+            android:backgroundTint="@color/widget_color"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle,NestedWeights"
             tools:textSize="36sp" />
@@ -47,9 +47,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:backgroundTint="@color/widget_color"
+            app:cornerRadius="12sp"
             android:text="@string/gps"
             android:textColor="@color/text_color"
-            app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"
             tools:textSize="36sp" />
 
@@ -58,9 +58,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/ar"
+            android:text=" ar "
             android:textColor="@color/text_color"
-            app:backgroundTint="@color/widget_color"
+            android:backgroundTint="@color/widget_color"
             app:cornerRadius="12sp"
             tools:ignore="ButtonStyle"
             tools:textSize="36sp" />
@@ -92,7 +92,7 @@
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.1"
+                android:layout_weight="0.05"
                 android:background="@color/background_app_color" />
 
             <ImageButton
@@ -117,7 +117,7 @@
         android:layout_weight="1"
         android:text="@string/login"
         android:textColor="@color/text_color"
-        app:backgroundTint="@color/widget_color"
+        android:backgroundTint="@color/widget_color"
         app:cornerRadius="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

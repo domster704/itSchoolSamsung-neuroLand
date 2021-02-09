@@ -2,9 +2,7 @@ package ru.gisupov.neuroland.main_ui;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Objects;
-
 import ru.gisupov.neuroland.R;
 
-public class MainActivity extends Fragment {
+public class MainActivity extends Fragment implements View.OnClickListener {
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +41,19 @@ public class MainActivity extends Fragment {
         Button gps = (Button) getView().findViewById(R.id.gps_but);
         gps.setOnClickListener(this::goToGPS);
 
-        Button login = (Button) getView().findViewById(R.id.log_but);
-        login.setOnClickListener(this::goToLogin);
-
+//        Button login = (Button) getView().findViewById(R.id.log_but);
+//        login.setOnClickListener(this::goToLogin);
     }
 
     public void goToGPS(View view) {
-        Intent intent = new Intent(getActivity().getApplicationContext(), GPSActivity.class);
+        Intent intent = new Intent(requireActivity().getApplicationContext(), GPSActivity.class);
         startActivity(intent);
     }
 
-    public void goToLogin(View view) {
-        Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
-    }
+//    public void goToLogin(View view) {
+//        Intent intent = new Intent(requireActivity().getApplicationContext(), LoginActivity.class);
+//        startActivity(intent);
+//    }
 
     public void goToAr(View view) {
         Intent intent = new Intent(requireActivity().getApplicationContext(), ARActivity.class);
@@ -66,7 +61,12 @@ public class MainActivity extends Fragment {
     }
 
     public void goToWeb(View view) {
-        Intent intent = new Intent (getActivity().getApplicationContext(), WebChooseActivity.class);
+        Intent intent = new Intent (requireActivity().getApplicationContext(), WebChooseActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
