@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         if (login.getText().toString().equals(RegActivity.userLoginFromFile) && pass.getText().toString().equals(RegActivity.userPasswordFromFile)) {
             Toast.makeText(getApplicationContext(), R.string.successLogin, Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainFragment.class);
             startActivity(intent);
         } else {
             Toast.makeText(getApplicationContext(), R.string.wrongLogin, Toast.LENGTH_SHORT).show();

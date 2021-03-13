@@ -13,7 +13,7 @@ import android.widget.Button;
 
 import ru.gisupov.neuroland.R;
 
-public class MainActivity extends Fragment implements View.OnClickListener {
+public class MainFragment extends Fragment implements View.OnClickListener {
 
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
