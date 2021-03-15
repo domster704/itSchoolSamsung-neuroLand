@@ -30,7 +30,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/widget_color"
         android:onClick="getDataFromLink"
-        android:text="@string/login"
+        android:text="Получить"
         android:textColor="@color/text_color"
         android:textSize="26sp"
         app:cornerRadius="8dp" />

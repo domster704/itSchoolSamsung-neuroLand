@@ -64,19 +64,14 @@ public class WebChooseActivity extends AppCompatActivity {
     }
 
     public void getDataFromLink(View view) throws Exception {
-        Process p = Runtime.getRuntime().exec("python app/src/main/java/ru/gisupov/neuroland/main_ui/python_neuro/neuroland/server-flask.py");
+//        Process p = Runtime.getRuntime().exec("python app/src/main/java/ru/gisupov/neuroland/main_ui/python_neuro/neuroland/server-flask.py");
 
         EditText et = (EditText) findViewById(R.id.textLink);
         TextView tv = (TextView) findViewById(R.id.textCost);
 
         String urlData = et.getText().toString();
-//        String cost = putHTML("http://localhost:5000/", urlData);
-        String cost = "Xd";
-        try {
-            cost = getHTML("http://127.0.0.1:3000/");
-        } catch (Exception e) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
-        }
+        String cost = putHTML("http://localhost:5000/", urlData);
+//        String cost = getHTML("http://127.0.0.1:3000/");
 
         tv.setText(cost);
     }

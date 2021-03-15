@@ -11,14 +11,14 @@ url = None
 
 @app.route("/", methods=["GET"])
 def hello1():
-	# from domofond_parser import get_data_by_link
-	# data = domofond_parser.get_data_by_link(url)
-	# print(data)
-	# from new_tens import getDataFromReadyNeural
-	# per = getDataFromReadyNeural(data)
-	# print(per)
-	# return str(per)
-	return url
+	from domofond_parser import get_data_by_link
+	data = domofond_parser.get_data_by_link(url)
+	print(data)
+	from new_tens import getDataFromReadyNeural
+	per = getDataFromReadyNeural(data)
+	print(per)
+	return str(per)
+	# return url
 
 
 @app.route('/', methods=["POST"])
@@ -27,7 +27,7 @@ def doit():
 	request_data = request.form.to_dict()
 	for k, v in request_data.items():
 		url = k
-	print(url)
+	# print(url)
 
 
 app.run(port=3000)
