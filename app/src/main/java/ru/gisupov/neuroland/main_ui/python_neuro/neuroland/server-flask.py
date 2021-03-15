@@ -12,7 +12,7 @@ url = None
 @app.route("/", methods=["GET"])
 def hello1():
 	from domofond_parser import get_data_by_link
-	data = domofond_parser.get_data_by_link(url)
+	data = get_data_by_link(url)
 	print(data)
 	from new_tens import getDataFromReadyNeural
 	per = getDataFromReadyNeural(data)
