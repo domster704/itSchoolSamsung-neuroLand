@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -63,11 +64,20 @@ public class WebChooseActivity extends AppCompatActivity {
     }
 
     public void getDataFromLink(View view) throws Exception {
+        Process p = Runtime.getRuntime().exec("python app/src/main/java/ru/gisupov/neuroland/main_ui/python_neuro/neuroland/server-flask.py");
+
         EditText et = (EditText) findViewById(R.id.textLink);
         TextView tv = (TextView) findViewById(R.id.textCost);
 
         String urlData = et.getText().toString();
-        String cost = putHTML("http://localhost:5000/", urlData);
+//        String cost = putHTML("http://localhost:5000/", urlData);
+        String cost = "Xd";
+        try {
+            cost = getHTML("http://127.0.0.1:3000/");
+        } catch (Exception e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show();
+        }
+
         tv.setText(cost);
     }
 }
