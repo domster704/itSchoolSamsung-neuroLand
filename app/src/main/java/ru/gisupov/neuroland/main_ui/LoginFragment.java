@@ -24,7 +24,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Intent intent = new Intent(requireActivity().getApplicationContext(), LoginActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(requireActivity().getApplicationContext(), LoginActivity.class);
+//        startActivity(intent);
     }
 }

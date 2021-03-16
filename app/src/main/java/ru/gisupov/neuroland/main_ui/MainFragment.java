@@ -41,8 +41,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         Button gps = (Button) getView().findViewById(R.id.gps_but);
         gps.setOnClickListener(this::goToGPS);
 
-//        Button login = (Button) getView().findViewById(R.id.log_but);
-//        login.setOnClickListener(this::goToLogin);
+        Button login = (Button) getView().findViewById(R.id.log_but);
+        login.setOnClickListener(this::goToLogin);
     }
 
     public void goToGPS(View view) {
@@ -50,10 +50,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         startActivity(intent);
     }
 
-//    public void goToLogin(View view) {
-//        Intent intent = new Intent(requireActivity().getApplicationContext(), LoginActivity.class);
-//        startActivity(intent);
-//    }
+    public void goToLogin(View view) {
+        Intent intent = new Intent(requireActivity().getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
 
     public void goToAr(View view) {
         Intent intent = new Intent(requireActivity().getApplicationContext(), ARActivity.class);

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="ru.gisupov.neuroland.main_ui.ui.notifications.NotificationsFragment"
+        android:name="ru.gisupov.neuroland.main_ui.LoginFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
