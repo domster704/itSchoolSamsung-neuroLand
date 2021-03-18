@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.12"
+        android:layout_weight="0.02"
         android:background="#100F0F"
         android:orientation="horizontal">
 
@@ -28,14 +28,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_account_white"
+            android:onClick="goToLogin"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_acc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            android:onClick="goToLogin"/>
+            app:layout_constraintVertical_bias="1.0" />
 
     </LinearLayout>
 
