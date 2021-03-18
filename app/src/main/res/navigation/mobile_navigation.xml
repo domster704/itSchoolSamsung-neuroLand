@@ -15,5 +15,5 @@
         android:id="@+id/navigation_notifications"
         android:name="ru.gisupov.neuroland.main_ui.LoginFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/login" />
 </navigation>

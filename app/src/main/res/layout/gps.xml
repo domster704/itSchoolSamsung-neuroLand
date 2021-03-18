@@ -31,5 +31,6 @@
         android:text="@string/cadastr_map"
         android:textColor="@color/text_color"
         android:textSize="30sp"
-        app:cornerRadius="10dp" />
+        app:cornerRadius="10dp"
+        android:onClick="goToCadastMap"/>
 </LinearLayout>
