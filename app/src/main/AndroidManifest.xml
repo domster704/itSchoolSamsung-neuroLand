@@ -9,22 +9,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject_NeuroLand">
         <activity
-            android:name=".main_ui.MenuActivity"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+         android:name=".main_ui.MainActivity"
+         android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
-        <!-- <activity -->
-        <!-- android:name=".main_ui.MainActivity" -->
-        <!-- android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"> -->
-        <!--             <intent-filter> -->
-        <!--                 <action android:name="android.intent.action.MAIN" /> -->
-        <!--                 <category android:name="android.intent.category.LAUNCHER" />; -->
-        <!--             </intent-filter> -->
-        <!-- </activity> -->
         <activity
             android:name=".main_ui.GPSActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
@@ -32,6 +23,8 @@
         <activity android:name=".main_ui.LoginActivity" />
         <activity android:name=".main_ui.RegActivity" />
         <activity android:name=".main_ui.WebChooseActivity" />
+        <activity android:name=".main_ui.MapsCadastActivity" />
+        <activity android:name=".main_ui.MapsActivity" />
 
         <meta-data
             android:name="com.google.ar.core"

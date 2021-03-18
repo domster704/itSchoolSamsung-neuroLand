@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/widget_color"
-        android:onClick="goToLoginAfterReg"
+        android:onClick="goToHomeAfterLogin"
         android:text="@string/login"
         android:textColor="@color/text_color"
         android:textSize="30sp" />
