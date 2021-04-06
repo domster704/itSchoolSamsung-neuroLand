@@ -63,18 +63,29 @@ public class WebChooseActivity extends AppCompatActivity {
         return getHTML(urlToRead);
     }
 
-    // TODO: сделать AsyncTask или Thread для запросов (инчае будет ошибка "android.os.NetworkOnMainThreadException")
-    public void getDataFromLink(View view) throws Exception {
-//        Process p = Runtime.getRuntime().exec("python app/src/main/java/ru/gisupov/neuroland/main_ui/python_neuro/neuroland/server-flask.py");
-
+   class AsyncRequest extends Thread {
         EditText et = (EditText) findViewById(R.id.textLink);
         TextView tv = (TextView) findViewById(R.id.textCost);
 
-        String urlData = et.getText().toString();
-//        String cost = putHTML("http://78.85.180.144:8000/", urlData);
-        String cost = getHTML("http://78.85.180.144:8000/");
+        @Override
+        public void run() {
+            String urlData = et.getText().toString();
+            String cost;
 
-        tv.setText(cost);
-        Toast.makeText(this, "Кнопка нажата", Toast.LENGTH_SHORT).show();
+//        String cost = putHTML("http://78.85.180.144:8000/", urlData);
+            try {
+                cost = getHTML("http://78.85.180.144:8000/");
+                tv.setText(cost);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void getDataFromLink(View view) throws Exception {
+//        Process p = Runtime.getRuntime().exec("python app/src/main/java/ru/gisupov/neuroland/main_ui/python_neuro/neuroland/server-flask.py");
+        AsyncRequest asyncRequest = new AsyncRequest();
+        asyncRequest.start();
+        Toast.makeText(getApplicationContext(), "Кнопка нажата", Toast.LENGTH_SHORT).show();
     }
 }
