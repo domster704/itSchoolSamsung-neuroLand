@@ -21,6 +21,6 @@
 
     <style name="Theme.MyProject_NeuroLand.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.MyProject_NeuroLand.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.AppMain" parent="@android:style/Theme.Material" />
 
 </resources>
