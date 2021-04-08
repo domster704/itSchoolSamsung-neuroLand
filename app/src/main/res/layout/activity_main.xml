@@ -9,9 +9,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.02"
-        android:background="#100F0F"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25"
+        android:background="#242526"
         android:orientation="horizontal">
 
         <TextView
@@ -41,115 +41,109 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="false"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher_background" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="1"
-        android:divider="@drawable/spacer_medium"
-        android:dividerPadding="8dp"
-        android:orientation="horizontal"
-        android:showDividers="middle"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/web_but"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/web"
-            android:textColor="@color/text_color"
-            android:backgroundTint="@color/widget_color"
-            app:cornerRadius="12sp"
-            tools:ignore="ButtonStyle,NestedWeights"
-            tools:textSize="36sp" />
-
-
-        <Button
-            android:id="@+id/gps_but"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:backgroundTint="@color/widget_color"
-            app:cornerRadius="12sp"
-            android:text="@string/gps"
-            android:textColor="@color/text_color"
-            tools:ignore="ButtonStyle"
-            tools:textSize="36sp" />
-
-        <Button
-            android:id="@+id/ar_but"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text=" ar "
-            android:textColor="@color/text_color"
-            android:backgroundTint="@color/widget_color"
-            app:cornerRadius="12sp"
-            tools:ignore="ButtonStyle"
-            tools:textSize="36sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:layout_weight="0.02"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/last_requests"
-            android:textColor="@color/text_color"
-            android:textSize="36sp" />
+            android:divider="@drawable/spacer_medium"
+            android:dividerPadding="8dp"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/web_but"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/widget_color"
+                android:text="@string/web"
+                android:textColor="@color/text_color"
+                app:cornerRadius="16sp"
+                tools:ignore="ButtonStyle,NestedWeights"
+                tools:textSize="36sp" />
+
+
+            <Button
+                android:id="@+id/gps_but"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/widget_color"
+                android:text="@string/gps"
+                android:textColor="@color/text_color"
+                app:cornerRadius="16sp"
+                tools:ignore="ButtonStyle"
+                tools:textSize="36sp" />
+
+            <Button
+                android:id="@+id/ar_but"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/widget_color"
+                android:text=" ar "
+                android:textColor="@color/text_color"
+                app:cornerRadius="16sp"
+                tools:ignore="ButtonStyle"
+                tools:textSize="36sp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:orientation="horizontal">
+            android:layout_weight="0.2"
+            android:orientation="vertical">
 
-            <View
-                android:id="@+id/divider"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.05"
-                android:background="@color/background_app_color" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/last_requests"
+                android:textColor="@color/text_color"
+                android:textSize="36sp" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:background="@color/background_app_color"
-                app:srcCompat="@drawable/ic_baseline_arrow_drop_down_48" />
-        </LinearLayout>
+                android:orientation="horizontal">
 
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.05"
+                    android:background="@color/background_app_color" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:background="@color/background_app_color"
+                    app:srcCompat="@drawable/ic_baseline_arrow_drop_down_48" />
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

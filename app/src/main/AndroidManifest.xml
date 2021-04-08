@@ -30,6 +30,7 @@
         <activity android:name=".main_ui.WebChooseActivity" />
         <activity android:name=".main_ui.MapsCadastActivity" />
         <activity android:name=".main_ui.MapsActivity" />
+        <activity android:name=".main_ui.WebAdditionalMode" />
 
         <meta-data
             android:name="com.google.ar.core"

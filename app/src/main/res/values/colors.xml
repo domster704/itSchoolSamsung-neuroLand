@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="widget_color">#2b2b2d</color>
+<!--    <color name="widget_color">#2b2b2d</color>-->
+    <color name="widget_color">#242526</color>
 <!--    <color name="text_color">#3F51B5</color>-->
-    <color name="text_color">#89898b</color>
-    <color name="background_app_color">#181818</color>
+<!--    <color name="text_color">#89898b</color>-->
+    <color name="text_color">#dfe1e6</color>
+<!--    <color name="background_app_color">#181818</color>-->
+    <color name="background_app_color">#18191a</color>
     <color name="head_app_color">#181818</color>
     <color name="important_color">#567096</color>
 

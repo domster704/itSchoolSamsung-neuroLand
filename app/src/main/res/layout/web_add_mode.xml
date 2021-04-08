@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app_color"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Площадь"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/distance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Расстояние до города"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/region"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:completionThreshold="1"
+            android:hint="Область"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_margin="12dp">
+
+        <EditText
+            android:id="@+id/HAU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="ЖКХ"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/neighbors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Соседи"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/transport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Транспорт"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ecology"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Экология"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_color"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/putLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:backgroundTint="@color/widget_color"
+        android:onClick="getDataFromLink"
+        android:text="Получить"
+        android:textColor="@color/text_color"
+        android:textSize="30sp"
+        app:cornerRadius="8dp" />
+
+    <TextView
+        android:id="@+id/textCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/text_color"
+        android:textSize="32sp" />
+</LinearLayout>
