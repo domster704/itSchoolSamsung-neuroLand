@@ -5,6 +5,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+    useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.example.myproject_neuroland"
@@ -14,6 +15,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
     }
 
     buildTypes {
@@ -39,6 +44,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.2'
     implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation files('C:\\Users\\isupo\\GoogleDisk\\Programming\\Java\\Libraries\\okhttp\\okhttp-3.9.0.jar')
+    implementation files('C:\\Users\\isupo\\GoogleDisk\\Programming\\Java\\Libraries\\okhttp\\okio-1.13.0.jar')
+
+//    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

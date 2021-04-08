@@ -16,9 +16,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="9dp"
         android:ems="10"
+        android:hint="Введите ссылку"
         android:inputType="textPersonName"
-        android:text="Введите ссылку"
         android:textColor="@color/text_color"
+        android:textColorHint="@color/text_color"
         android:textSize="24sp" />
 
     <Button
