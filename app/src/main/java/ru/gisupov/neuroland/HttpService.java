@@ -7,14 +7,17 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import ru.gisupov.neuroland.main_ui.SettingsActivity;
 
 public class HttpService {
+
+    private static String url = SettingsActivity.ip;
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
     public HttpService() {}
 
-    public String sendPOST(String url, String data) throws IOException {
+    public String sendPOST(String data) throws IOException {
 
         // json formatted data
         String json = "{\"data\": \"" + data + "\"}";
@@ -26,7 +29,7 @@ public class HttpService {
         );
 
         okhttp3.Request request = new Request.Builder()
-                .url(url)
+                .url(url + "/url")
                 .addHeader("User-Agent", "OkHttp Bot")
                 .post(body)
                 .build();
@@ -41,7 +44,7 @@ public class HttpService {
         }
     }
 
-    public String sendPOST(String url, String[] data) throws IOException {
+    public String sendPOST(String[] data) throws IOException {
 
         // json formatted data
         StringBuilder json = new StringBuilder()
@@ -67,7 +70,7 @@ public class HttpService {
         );
 
         okhttp3.Request request = new Request.Builder()
-                .url(url)
+                .url(url + "/data")
                 .addHeader("User-Agent", "OkHttp Bot")
                 .post(body)
                 .build();

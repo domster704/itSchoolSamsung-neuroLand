@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.gisupov.neuroland">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -14,23 +14,41 @@
         android:theme="@style/Theme.MyProject_NeuroLand"
         android:usesCleartextTraffic="true">
         <activity
-         android:name=".main_ui.MainActivity"
-         android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
-             <intent-filter>
-                 <action android:name="android.intent.action.MAIN" />
-                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            android:name=".main_ui.SettingsActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
+        <activity
+            android:name=".main_ui.MainActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".main_ui.GPSActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
-        <activity android:name=".main_ui.ARActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.LoginActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.RegActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.WebChooseActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.MapsCadastActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.MapsActivity" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
-        <activity android:name=".main_ui.WebAdditionalMode" android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
+        <activity
+            android:name=".main_ui.ARActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.LoginActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.RegActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.WebChooseActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.MapsCadastActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.MapsActivity"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+        <activity
+            android:name=".main_ui.WebAdditionalMode"
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
 
         <meta-data
             android:name="com.google.ar.core"

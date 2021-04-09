@@ -38,29 +38,29 @@ public class MainActivity extends Activity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("NeuroLand");
         toolbar.inflateMenu(R.menu.menu_toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+                    case R.id.settings:
+                        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.just:
+                        Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
+                        return true;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        toolbar.setOnMenuItemClickListener(new To);
-
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
-    }
-
-    @SuppressLint("NonConstantResourceId")
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.settings:
-                Toast.makeText(getApplicationContext(), "Натсройки", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.just:
-                Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     public void goToGPS(View view) {
