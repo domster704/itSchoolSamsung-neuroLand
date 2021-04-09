@@ -29,6 +29,11 @@ public class WebChooseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
    class AsyncRequest extends Thread {
         EditText et = (EditText) findViewById(R.id.textLink);
         TextView tv = (TextView) findViewById(R.id.textCost);

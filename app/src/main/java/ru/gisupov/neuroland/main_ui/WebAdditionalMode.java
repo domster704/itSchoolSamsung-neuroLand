@@ -1,5 +1,6 @@
 package ru.gisupov.neuroland.main_ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -115,6 +116,11 @@ public class WebAdditionalMode extends AppCompatActivity {
     public void getDataFromLink(View view) {
         AsyncRequest asyncRequest = new AsyncRequest();
         asyncRequest.start();
+    }
+
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     class AsyncRequest extends Thread {

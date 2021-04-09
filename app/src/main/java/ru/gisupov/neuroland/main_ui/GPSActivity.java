@@ -25,4 +25,9 @@ public class GPSActivity extends Activity {
         Intent intent = new Intent(this, MapsCadastActivity.class);
         startActivity(intent);
     }
+
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
 }

@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:hint="Login"
         android:textColor="@color/text_color"
-        android:textColorHint="@color/text_color"
+        app:backgroundTint="@color/text_hint"
+        android:textColorHint="@color/text_hint"
         android:textSize="24sp" />
 
     <EditText
@@ -28,7 +29,8 @@
         android:layout_marginTop="10dp"
         android:hint="Password"
         android:textColor="@color/text_color"
-        android:textColorHint="@color/text_color"
+        app:backgroundTint="@color/text_hint"
+        android:textColorHint="@color/text_hint"
         android:textSize="24sp" />
 
     <EditText
@@ -38,7 +40,8 @@
         android:layout_marginTop="10dp"
         android:hint="Repeat the password"
         android:textColor="@color/text_color"
-        android:textColorHint="@color/text_color"
+        app:backgroundTint="@color/text_hint"
+        android:textColorHint="@color/text_hint"
         android:textSize="24sp" />
 
     <Button

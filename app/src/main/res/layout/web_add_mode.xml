@@ -7,6 +7,10 @@
     android:background="@color/background_app_color"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,8 +24,9 @@
             android:layout_margin="8dp"
             android:hint="Площадь"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"/>
 
         <EditText
             android:id="@+id/distance"
@@ -30,7 +35,8 @@
             android:layout_margin="8dp"
             android:hint="Расстояние до города"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
         <AutoCompleteTextView
@@ -41,7 +47,8 @@
             android:completionThreshold="1"
             android:hint="Область"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
 
@@ -61,7 +68,8 @@
             android:layout_margin="8dp"
             android:hint="ЖКХ"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
         <EditText
@@ -71,7 +79,8 @@
             android:layout_margin="8dp"
             android:hint="Соседи"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
         <EditText
@@ -81,7 +90,8 @@
             android:layout_margin="8dp"
             android:hint="Транспорт"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
         <EditText
@@ -91,7 +101,8 @@
             android:layout_margin="8dp"
             android:hint="Экология"
             android:textColor="@color/text_color"
-            android:textColorHint="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
             android:textSize="24sp" />
 
     </LinearLayout>
