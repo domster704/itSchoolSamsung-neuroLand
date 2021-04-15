@@ -44,8 +44,10 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.navigation:navigation-fragment:2.3.2'
     implementation 'androidx.navigation:navigation-ui:2.3.2'
-    implementation files('C:\\Users\\isupo\\GoogleDisk\\Programming\\Java\\Libraries\\okhttp\\okhttp-3.9.0.jar')
-    implementation files('C:\\Users\\isupo\\GoogleDisk\\Programming\\Java\\Libraries\\okhttp\\okio-1.13.0.jar')
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
     implementation 'androidx.preference:preference:1.1.1'
 
 //    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
