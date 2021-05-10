@@ -36,7 +36,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="click_here_to_additional_mode">additional mode</string>
+    <string name="click_here_to_additional_mode">Advanced mode</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->

@@ -1,25 +1,49 @@
 package ru.gisupov.neuroland;
 
+import android.util.Log;
+
+import java.io.IOException;
+
+import ru.gisupov.neuroland.main_ui.LoginActivity;
+import ru.gisupov.neuroland.main_ui.SettingsActivity;
+
 public class ClientServer {
-    private long id;
-    private String address;
+    private static MyResponse response;
+    AsyncTask asyncTask;
 
-    public ClientServer(long id, String address) {
-        this.address = address;
-        this.id = id;
+    public ClientServer() { }
+
+    static class AsyncTask extends Thread {
+
+        private final String json;
+        private final String doing;
+
+        public AsyncTask(String json, String doing) {
+            this.doing = doing;
+            this.json = json;
+        }
+
+        @Override
+        public void run() {
+            HttpAuthService service = new HttpAuthService();
+            try {
+                response = new MyResponse(service.post(json, doing));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public long makeRequest(Request req) {
-        // making request
-        return 1;
+    public void makeRequest(MyRequest req) {
+        asyncTask = new AsyncTask(req.json, req.doing);
+        asyncTask.start();
     }
 
-    public boolean sendRequest(long id) {
-        // checking is request sending and after this return true or false
-        return true;
-    }
+    public MyResponse getResponse() throws InterruptedException {
+        if (asyncTask.isAlive())
+            asyncTask.join();
 
-//    public Response getResponse(long id) {
-//        // doing something
-//    }
+        Log.d("xd", response.data);
+        return response;
+    }
 }

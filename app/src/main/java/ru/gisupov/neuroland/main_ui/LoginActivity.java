@@ -5,22 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ru.gisupov.neuroland.ClientServer;
+import ru.gisupov.neuroland.MyRequest;
+import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
 public class LoginActivity extends AppCompatActivity {
 
     public final static int RESULT_FROM_REG_ACTIVITY = 10;
-    public final static String FILE_NAME = "personData.txt";
-    private static final String LOG_TAG = "MainActivity";
+
+    private EditText login;
+    private EditText pass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        login = (EditText) findViewById(R.id.EndLogin);
+        pass = (EditText) findViewById(R.id.EndPassword);
+
+        if (!RegActivity.userPasswordFromFile.isEmpty() && !RegActivity.userLoginFromFile.isEmpty()) {
+            login.setText(RegActivity.userPasswordFromFile);
+            pass.setText(RegActivity.userLoginFromFile);
+        }
+
     }
 
 
@@ -45,17 +59,20 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void goToHomeAfterLogin(View view){
-        EditText login = (EditText) findViewById(R.id.EndLogin);
-        EditText pass = (EditText) findViewById(R.id.EndPassword);
+    public void goToHomeAfterLogin(View view) throws InterruptedException {
+        MyRequest myRequestAuth = new MyRequest("login", new String[] {login.getText().toString(), pass.getText().toString()});
+        ClientServer server = new ClientServer();
+        server.makeRequest(myRequestAuth);
 
-        if (login.getText().toString().equals(RegActivity.userLoginFromFile) && pass.getText().toString().equals(RegActivity.userPasswordFromFile)) {
+        MyResponse myResponseAuth = server.getResponse();
+
+        if (myResponseAuth.data.equals("True")) {
+            RegActivity.userPasswordFromFile = pass.getText().toString();
+            RegActivity.userLoginFromFile = login.getText().toString();
             Toast.makeText(getApplicationContext(), R.string.successLogin, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.wrongLogin, Toast.LENGTH_SHORT).show();
         }
     }
 }

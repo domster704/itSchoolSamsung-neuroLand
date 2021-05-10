@@ -18,7 +18,6 @@
     <style name="Theme.MyProject_NeuroLand.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:actionMenuTextColor">@color/widget_color</item>
     </style>
 
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">

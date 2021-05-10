@@ -13,7 +13,7 @@ import ru.gisupov.neuroland.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    public static String ip = "http://100.80.248.212:8000";
+    public static String ip = "http://78.85.255.114:80/";
     private EditText ipEditText;
 
     @Override
@@ -34,7 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void saveSettings(View view) {
         String newIP = ipEditText.getText().toString();
-        ip = "http://" + newIP + ":8000";
+        ip = "http://" + newIP + ":80";
         Toast.makeText(this, ip, Toast.LENGTH_LONG).show();
     }
 }

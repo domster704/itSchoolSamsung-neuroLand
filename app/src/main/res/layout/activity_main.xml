@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/widget_color"
-                android:text=" ar "
+                android:text="@string/ar"
                 android:textColor="@color/text_color"
                 app:cornerRadius="16sp"
                 tools:ignore="ButtonStyle"
@@ -85,36 +85,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/lastReq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/last_requests"
                 android:textColor="@color/text_color"
                 android:textSize="36sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"
-                android:orientation="horizontal">
-
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.05"
-                    android:background="@color/background_app_color" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    android:background="@color/background_app_color"
-                    app:srcCompat="@drawable/ic_baseline_arrow_drop_down_48" />
-            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

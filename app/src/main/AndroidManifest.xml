@@ -38,7 +38,7 @@
             android:name=".main_ui.RegActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
         <activity
-            android:name=".main_ui.WebChooseActivity"
+            android:name=".main_ui.WebActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
         <activity
             android:name=".main_ui.MapsCadastActivity"
@@ -47,7 +47,7 @@
             android:name=".main_ui.MapsActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
         <activity
-            android:name=".main_ui.WebAdditionalMode"
+            android:name=".main_ui.WebAdditionalModeActivity"
             android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
 
         <meta-data

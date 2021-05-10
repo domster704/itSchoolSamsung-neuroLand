@@ -40,10 +40,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:backgroundTint="@color/widget_color"
+            android:fontFamily="sans-serif-thin"
             android:onClick="getDataFromLink"
             android:text="Получить"
             android:textColor="@color/text_color"
-            android:textSize="32sp"
+            android:textSize="24sp"
             app:cornerRadius="8dp" />
 
         <TextView

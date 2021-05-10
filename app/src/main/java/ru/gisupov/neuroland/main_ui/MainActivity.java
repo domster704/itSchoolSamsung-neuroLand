@@ -1,19 +1,18 @@
 package ru.gisupov.neuroland.main_ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import androidx.annotation.NonNull;
-
+import ru.gisupov.neuroland.ClientServer;
+import ru.gisupov.neuroland.MyRequest;
+import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
 public class MainActivity extends Activity {
@@ -22,6 +21,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        addDataToLastRequest();
 
         Button ar = (Button) findViewById(R.id.ar_but);
         ar.setOnClickListener(this::goToAr);
@@ -32,29 +33,44 @@ public class MainActivity extends Activity {
         Button gps = (Button) findViewById(R.id.gps_but);
         gps.setOnClickListener(this::goToGPS);
 
-//        ImageButton login = (ImageButton) findViewById(R.id.loginButton);
-//        login.setOnClickListener(this::goToLogin);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("NeuroLand");
         toolbar.inflateMenu(R.menu.menu_toolbar);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @SuppressLint("NonConstantResourceId")
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                switch (id) {
-                    case R.id.settings:
-                        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                        startActivity(intent);
-                        return true;
-                    case R.id.just:
-                        Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
-                        return true;
-                }
-                return true;
+        toolbar.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.settings:
+                    Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                    startActivity(intent);
+                    return true;
+                case R.id.just:
+                    Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
+                    return true;
             }
+            return true;
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        addDataToLastRequest();
+    }
+
+    private void addDataToLastRequest() {
+        if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+            ClientServer server = new ClientServer();
+            MyRequest myRequest = new MyRequest("getContent", new String[] {RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile});
+            try {
+                server.makeRequest(myRequest);
+                MyResponse response = server.getResponse();
+
+                TextView tv = findViewById(R.id.lastReq);
+                tv.setText(response.data);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -79,7 +95,7 @@ public class MainActivity extends Activity {
     }
 
     public void goToWeb(View view) {
-        Intent intent = new Intent (this, WebChooseActivity.class);
+        Intent intent = new Intent(this, WebActivity.class);
         startActivity(intent);
     }
 }

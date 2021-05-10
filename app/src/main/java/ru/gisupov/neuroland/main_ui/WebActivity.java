@@ -13,14 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import java.io.IOException;
-
-import okhttp3.*;
-
-import ru.gisupov.neuroland.HttpService;
+import ru.gisupov.neuroland.ClientServer;
+import ru.gisupov.neuroland.HttpAuthService;
+import ru.gisupov.neuroland.HttpNeuroService;
+import ru.gisupov.neuroland.MyRequest;
+import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
-public class WebChooseActivity extends AppCompatActivity {
+public class WebActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class WebChooseActivity extends AppCompatActivity {
     }
 
     public void goToAdditionalMode(View view) {
-        Intent intent = new Intent(this, WebAdditionalMode.class);
+        Intent intent = new Intent(this, WebAdditionalModeActivity.class);
         startActivity(intent);
     }
 
@@ -75,16 +75,30 @@ public class WebChooseActivity extends AppCompatActivity {
             String cost;
 
             try {
-                HttpService httpService = new HttpService();
-                cost = httpService.sendPOST(urlData);
+                HttpNeuroService service= new HttpNeuroService();
+                cost = service.sendPOST(urlData);
                 tv.setText(cost);
+
+                if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+                    MyRequest myRequest = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
+                            urlData + " " + cost});
+
+                    ClientServer server = new ClientServer();
+                    server.makeRequest(myRequest);
+
+                    MyResponse myResponse = server.getResponse();
+
+                    if (myResponse.data.equals("True"))
+                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT);
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void getDataFromLink(View view) throws Exception {
+    public void getDataFromLink(View view) {
         AsyncRequest asyncRequest = new AsyncRequest();
         asyncRequest.start();
         Toast.makeText(this, SettingsActivity.ip, Toast.LENGTH_LONG).show();
