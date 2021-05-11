@@ -13,14 +13,16 @@ import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ru.gisupov.neuroland.ClientServer;
 import ru.gisupov.neuroland.HttpNeuroService;
+import ru.gisupov.neuroland.MyRequest;
+import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
 
 public class WebAdditionalModeActivity extends AppCompatActivity {
 
     private static final String[] city = {"Камчатский край",
-            "Moscow",
             "Марий Эл",
             "Чечня",
             "Оренбургская область",
@@ -136,18 +138,7 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         return true;
     }
 
-    public void getDataFromLink(View view) {
-        AsyncRequest asyncRequest = new AsyncRequest();
-        asyncRequest.start();
-    }
-
-    public void goToLogin(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-    }
-
-    class AsyncRequest extends Thread {
-
+    public void getDataFromLink(View view) throws InterruptedException {
         EditText area = findViewById(R.id.area);
         EditText distance = findViewById(R.id.distance);
         EditText hau = findViewById(R.id.HAU);
@@ -156,28 +147,27 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         EditText ecology = findViewById(R.id.ecology);
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.region);
 
-        TextView tv = (TextView) findViewById(R.id.textCost);
+        MyRequest myRequest = new MyRequest("data", new String[] {
+                area.getText().toString(),
+                distance.getText().toString(),
+                ecology.getText().toString(),
+                hau.getText().toString(),
+                transport.getText().toString(),
+                neighbors.getText().toString(),
+                autoCompleteTextView.getText().toString().equals("") ? "Московская область" : "Московская область"
+        });
 
-        @Override
-        public void run() {
-            String cost;
-            String[] data = {
-                    area.getText().toString(),
-                    distance.getText().toString(),
-                    ecology.getText().toString(),
-                    hau.getText().toString(),
-                    transport.getText().toString(),
-                    neighbors.getText().toString(),
-                    autoCompleteTextView.getText().toString()
-            };
+        TextView tv = findViewById(R.id.textCost);
 
-            try {
-                HttpNeuroService httpService = new HttpNeuroService();
-                cost = httpService.sendPOST(data);
-                tv.setText(cost);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        ClientServer server = new ClientServer();
+        server.makeRequest(myRequest);
+
+        MyResponse response = server.getResponse();
+        tv.setText(response.data);
+    }
+
+    public void goToLogin(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }

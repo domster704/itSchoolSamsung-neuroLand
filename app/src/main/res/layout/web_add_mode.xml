@@ -44,7 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:completionThreshold="1"
             android:hint="Область"
             android:textColor="@color/text_color"
             app:backgroundTint="@color/text_hint"

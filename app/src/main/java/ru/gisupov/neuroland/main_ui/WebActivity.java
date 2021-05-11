@@ -65,42 +65,66 @@ public class WebActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-   class AsyncRequest extends Thread {
+//   class AsyncRequest extends Thread {
+//        EditText et = (EditText) findViewById(R.id.textLink);
+//        TextView tv = (TextView) findViewById(R.id.textCost);
+//
+//        @Override
+//        public void run() {
+//            String urlData = et.getText().toString();
+//            String cost;
+//
+//            try {
+//                HttpNeuroService service= new HttpNeuroService();
+//                cost = service.sendPOST(urlData);
+//                tv.setText(cost);
+//
+//                if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+//                    MyRequest myRequest = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
+//                            urlData + " " + cost});
+//
+//                    ClientServer server = new ClientServer();
+//                    server.makeRequest(myRequest);
+//
+//                    MyResponse myResponse = server.getResponse();
+//
+//                    if (myResponse.data.equals("True"))
+//                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT);
+//                }
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
+
+    public void getDataFromLink(View view) throws InterruptedException {
         EditText et = (EditText) findViewById(R.id.textLink);
         TextView tv = (TextView) findViewById(R.id.textCost);
 
-        @Override
-        public void run() {
-            String urlData = et.getText().toString();
-            String cost;
+        String urlData = et.getText().toString();
+        String cost;
 
-            try {
-                HttpNeuroService service= new HttpNeuroService();
-                cost = service.sendPOST(urlData);
-                tv.setText(cost);
+        MyRequest myRequest = new MyRequest("url", new String[] {urlData});
+        ClientServer server = new ClientServer();
+        server.makeRequest(myRequest);
 
-                if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
-                    MyRequest myRequest = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
-                            urlData + " " + cost});
+        MyResponse myResponse = server.getResponse();
+        cost = myResponse.data;
+        tv.setText(cost);
 
-                    ClientServer server = new ClientServer();
-                    server.makeRequest(myRequest);
+        if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+            MyRequest myRequest2 = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
+                    urlData + " " + cost});
 
-                    MyResponse myResponse = server.getResponse();
+            server.makeRequest(myRequest);
 
-                    if (myResponse.data.equals("True"))
-                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT);
-                }
+            MyResponse myResponse2 = server.getResponse();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            if (myResponse2.data.equals("True"))
+                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
         }
-    }
 
-    public void getDataFromLink(View view) {
-        AsyncRequest asyncRequest = new AsyncRequest();
-        asyncRequest.start();
         Toast.makeText(this, SettingsActivity.ip, Toast.LENGTH_LONG).show();
     }
 }

@@ -40,10 +40,12 @@ public class ClientServer {
     }
 
     public MyResponse getResponse() throws InterruptedException {
-        if (asyncTask.isAlive())
-            asyncTask.join();
+        while (asyncTask.isAlive()) {
+            try {
+                asyncTask.join();
+            } catch (Exception ignored) {}
+        }
 
-        Log.d("xd", response.data);
         return response;
     }
 }
