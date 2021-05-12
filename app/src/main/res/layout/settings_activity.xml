@@ -5,21 +5,18 @@
     android:background="@color/background_app_color"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:layout_margin="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_margin="16dp">
 
             <TextView
                 android:id="@+id/ipText"
@@ -45,8 +42,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/widget_color"
-            android:text="Сохранить"
+            android:background="@drawable/border"
+            android:text="@string/save"
             android:textColor="@color/text_color"
             android:textSize="24sp"
             android:onClick="saveSettings"/>

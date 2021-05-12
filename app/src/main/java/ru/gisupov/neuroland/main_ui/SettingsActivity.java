@@ -2,18 +2,22 @@ package ru.gisupov.neuroland.main_ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceFragmentCompat;
 
 import ru.gisupov.neuroland.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    public static String ip = "https://neuroland-server.herokuapp.com/";
+//    public static String ip = "https://neuroland-server.herokuapp.com/";
+    public static String ip = "http://78.85.248.2:80/";
     private EditText ipEditText;
 
     @Override
@@ -29,6 +33,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         ipEditText = findViewById(R.id.ipEditText);
         ipEditText.setHint(ip.substring(7, ip.length() - 5));
+
+        changeStatusBarColor();
+    }
+
+    private void changeStatusBarColor() {
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.background_app_color));
     }
 
 

@@ -7,9 +7,6 @@
     android:background="@color/background_app_color"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -30,7 +27,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/house3" />
 
             <ImageButton
@@ -38,7 +34,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/house3" />
 
             <ImageButton
@@ -46,7 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/house3" />
 
             <ImageButton
@@ -54,7 +48,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/house3" />
 
             <ImageButton
@@ -62,7 +55,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/house3" />
 
         </LinearLayout>

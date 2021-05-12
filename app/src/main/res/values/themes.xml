@@ -9,21 +9,11 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:actionMenuTextColor">@color/widget_color</item>
-        <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.MyProject_NeuroLand.NoActionBar">
+    <style name="Theme.MyProject_NeuroLand.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
-    <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textColor">@color/text_color</item>
-        <item name="android:backgroundTint">@color/widget_color</item>
-        <item name="android:background">@color/widget_color</item>
-    </style>`
 
 </resources>

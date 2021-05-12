@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">MyProject_NeuroLand</string>
+
     <string name="last_requests">Last requests</string>
     <string name="gps">GPS</string>
     <string name="ar">AR</string>
     <string name="web">WEB</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="cadastr_map">Кадастровая карта</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="click_here_to_register">Click here to register</string>
+    <string name="map">Карта</string>
+
     <string name="successLogin">Вход был успешным</string>
     <string name="wrongLogin">Неверно логин или пароль!</string>
     <string name="emptyLogReg">Вы не вели логин и пароль</string>
@@ -12,16 +18,9 @@
     <string name="emptyReg">Вы не вели пароль</string>
     <string name="shortLog">Логин слишком короткий</string>
     <string name="shortReg">Пароль слишком короткий</string>
-    <string name="some_useful_information">Some useful information</string>
-    <string name="todo">TODO</string>
-    <string name="map">Карта</string>
-    <string name="cadastr_map">Кадастровая карта</string>
-    <string name="login">Login</string>
-    <string name="password">Password</string>
-    <string name="click_here_to_register">Click here to register</string>
-    <string name="title_activity_menu">MeunActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="some_useful_information">Полезная информация</string>
+
+
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
@@ -30,12 +29,6 @@
     <string name="android_requirements">Требуется Android SDK 27 или выше</string>
     <string name="openGlEs_requirements">Требуется OpenGl ES 3.0 или выше</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="click_here_to_additional_mode">Advanced mode</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
@@ -53,4 +46,11 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="Get">Получить</string>
+    <string name="InputLink">Введите ссылку</string>
+    <string name="register">Register</string>
+    <string name="repeat_the_password">Repeat the password</string>
+    <string name="save">Сохранить</string>
+    <string name="it_is_map">Это карта</string>
+    <string name="it_is_cad_map">Это кадастровые карта</string>
 </resources>

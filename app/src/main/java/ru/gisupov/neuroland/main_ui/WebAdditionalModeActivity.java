@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -12,9 +14,9 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import ru.gisupov.neuroland.ClientServer;
-import ru.gisupov.neuroland.HttpNeuroService;
 import ru.gisupov.neuroland.MyRequest;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
@@ -114,22 +116,14 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         autoCompleteTextView.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, city));
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("NeuroLand");
-        toolbar.inflateMenu(R.menu.menu_toolbar);
-        toolbar.setOnMenuItemClickListener(item -> {
-            int id = item.getItemId();
-            switch (id) {
-                case R.id.settings:
-                    Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                    startActivity(intent);
-                    return true;
-                case R.id.just:
-                    Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
-                    return true;
-            }
-            return true;
-        });
+        changeStatusBarColor();
+    }
+
+    private void changeStatusBarColor() {
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.background_app_color));
     }
 
     @Override
@@ -154,7 +148,7 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
                 hau.getText().toString(),
                 transport.getText().toString(),
                 neighbors.getText().toString(),
-                autoCompleteTextView.getText().toString().equals("") ? "Московская область" : "Московская область"
+                autoCompleteTextView.getText().toString()
         });
 
         TextView tv = findViewById(R.id.textCost);

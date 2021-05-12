@@ -4,34 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_app_color"
+    android:background="@drawable/home_screen_back"
     android:orientation="vertical">
 
 
-    <include
+    <Toolbar
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="12dp"
-        android:layout_weight="0.02"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_weight="4"
+                android:onClick="goToLogin"
+                android:src="@drawable/ic_acc"
+                android:scaleType="center"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </Toolbar>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginBottom="8dp">
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:layout_weight="1"
             android:divider="@drawable/spacer_medium"
             android:dividerPadding="8dp"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:showDividers="middle"
             app:layout_constraintBottom_toTopOf="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,62 +65,118 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                android:id="@+id/web_but"
+
+            <LinearLayout
+                android:id="@+id/gpsModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/widget_color"
-                android:text="@string/web"
-                android:textColor="@color/text_color"
-                app:cornerRadius="16sp"
-                tools:ignore="ButtonStyle,NestedWeights"
-                tools:textSize="36sp" />
+                android:background="@drawable/border_main"
+                android:orientation="vertical"
+                android:onClick="goToGPS">
 
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/smartphone"
+                    android:layout_margin="8dp"/>
 
-            <Button
-                android:id="@+id/gps_but"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/gps"
+                    android:textColor="@color/text_color"
+                    android:textSize="30sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/arModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/widget_color"
-                android:text="@string/gps"
-                android:textColor="@color/text_color"
-                app:cornerRadius="16sp"
-                tools:ignore="ButtonStyle"
-                tools:textSize="36sp" />
+                android:background="@drawable/border_main"
+                android:orientation="vertical"
+                android:onClick="goToAr">
 
-            <Button
-                android:id="@+id/ar_but"
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera"
+                    android:layout_margin="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/ar"
+                    android:textColor="@color/text_color"
+                    android:textSize="30sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/webModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/widget_color"
-                android:text="@string/ar"
-                android:textColor="@color/text_color"
-                app:cornerRadius="16sp"
-                tools:ignore="ButtonStyle"
-                tools:textSize="36sp" />
+                android:background="@drawable/border_main"
+                android:orientation="vertical"
+                android:onClick="goToWeb">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/globe_grid"
+                    android:layout_margin="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="@string/web"
+                    android:textColor="@color/text_color"
+                    android:textSize="30sp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
+    </HorizontalScrollView>
+
+
+
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.2"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@drawable/widnow_border">
 
-            <TextView
-                android:id="@+id/lastReq"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/last_requests"
-                android:textColor="@color/text_color"
-                android:textSize="36sp" />
+            <LinearLayout
+                android:id="@+id/request_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </LinearLayout>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/lastReq"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="0dp"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="@string/last_requests"-->
+        <!--            android:textColor="@color/text_color"-->
+        <!--            android:textSize="24sp" />-->
+
+<!--    </LinearLayout>-->
 
 </LinearLayout>

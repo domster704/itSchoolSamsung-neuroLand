@@ -15,10 +15,12 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".main_ui.SettingsActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"/>
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".main_ui.MainActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar">
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,28 +29,36 @@
         </activity>
         <activity
             android:name=".main_ui.GPSActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".main_ui.ARActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.LoginActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.RegActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.WebActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.MapsCadastActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.MapsActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".main_ui.WebAdditionalModeActivity"
-            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar" />
+            android:theme="@style/Theme.MyProject_NeuroLand.NoActionBar"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.ar.core"

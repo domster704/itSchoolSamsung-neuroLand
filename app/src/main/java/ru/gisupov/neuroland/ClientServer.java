@@ -1,11 +1,6 @@
 package ru.gisupov.neuroland;
 
-import android.util.Log;
-
 import java.io.IOException;
-
-import ru.gisupov.neuroland.main_ui.LoginActivity;
-import ru.gisupov.neuroland.main_ui.SettingsActivity;
 
 public class ClientServer {
     private static MyResponse response;
@@ -25,7 +20,7 @@ public class ClientServer {
 
         @Override
         public void run() {
-            HttpAuthService service = new HttpAuthService();
+            HttpService service = new HttpService();
             try {
                 response = new MyResponse(service.post(json, doing));
             } catch (IOException e) {

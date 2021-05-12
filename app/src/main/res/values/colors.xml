@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="widget_color">#1c1c1e</color>
-    <color name="text_color">#f7f7f7</color>
+<!--    <color name="widget_color">#1c1c1e</color>-->
+<!--    <color name="text_color">#f7f7f7</color>-->
+<!--    <color name="text_hint">#9a9ea0</color>-->
+<!--    <color name="background_app_color">#000000</color>-->
+<!--    <color name="head_app_color">#111111</color>-->
+<!--    <color name="important_color">#567096</color>-->
+
+    <color name="home_widget_color">#fffffd</color>
+<!--    <color name="widget_color">#00a33c</color>-->
+    <color name="widget_color">#c0c0c0</color>
+    <color name="text_color">#000000</color>
     <color name="text_hint">#9a9ea0</color>
-    <color name="background_app_color">#000000</color>
+    <color name="background_app_color">#ffffff</color>
     <color name="head_app_color">#111111</color>
-    <color name="important_color">#567096</color>
+    <color name="important_color">#4B0082</color>
+
+    <color name="home_screen_color1">#5072c0</color>
+    <color name="home_screen_color2">#5083c5</color>
+    <color name="home_screen_color3">#509ecf</color>
 
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

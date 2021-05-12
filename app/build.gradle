@@ -45,10 +45,15 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.2'
     implementation 'androidx.navigation:navigation-ui:2.3.2'
     implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
+    
     // define any required OkHttp artifacts without version
     implementation("com.squareup.okhttp3:okhttp")
     implementation("com.squareup.okhttp3:logging-interceptor")
     implementation 'androidx.preference:preference:1.1.1'
+
+    implementation 'com.android.support:support-v4'
+
+    implementation ("com.google.android.material:material:1.2.0")
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

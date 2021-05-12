@@ -3,56 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_app_color"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingTop="20dp"
-    android:paddingRight="20dp"
-    android:paddingBottom="20dp">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/BeginLogin"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Login"
-        android:textColor="@color/text_color"
-        app:backgroundTint="@color/text_hint"
-        android:textColorHint="@color/text_hint"
-        android:textSize="24sp" />
+        android:layout_height="match_parent"
+        android:background="@color/background_app_color"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:layout_margin="8dp">
 
-    <EditText
-        android:id="@+id/BeginPassword1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Password"
-        android:textColor="@color/text_color"
-        app:backgroundTint="@color/text_hint"
-        android:textColorHint="@color/text_hint"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/BeginLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/login"
+            android:textColor="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
+            android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/BeginPassword2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Repeat the password"
-        android:textColor="@color/text_color"
-        app:backgroundTint="@color/text_hint"
-        android:textColorHint="@color/text_hint"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/BeginPassword1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"
+            android:textColor="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/regButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/widget_color"
-        android:onClick="goToLoginAfterReg"
-        android:text="Register"
-        android:textColor="@color/text_color"
-        android:textSize="30sp" />
+        <EditText
+            android:id="@+id/BeginPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/repeat_the_password"
+            android:textColor="@color/text_color"
+            app:backgroundTint="@color/text_hint"
+            android:textColorHint="@color/text_hint"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/regButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border"
+            android:onClick="goToLoginAfterReg"
+            android:text="@string/register"
+            android:textColor="@color/text_color"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

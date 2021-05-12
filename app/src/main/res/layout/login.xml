@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_app_color"
     android:orientation="vertical">
 
@@ -14,7 +13,7 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingBottom="20dp"
-        android:gravity="center">
+        android:gravity="center" >
 
         <EditText
             android:id="@+id/EndLogin"
@@ -43,11 +42,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/widget_color"
+            android:background="@drawable/border"
             android:onClick="goToHomeAfterLogin"
             android:text="@string/login"
             android:textColor="@color/text_color"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+        />
+
 
         <TextView
             android:id="@+id/registerLink"
