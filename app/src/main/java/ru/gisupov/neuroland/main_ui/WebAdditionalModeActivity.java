@@ -11,8 +11,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+import com.google.android.material.slider.Slider;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -135,19 +136,19 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
     public void getDataFromLink(View view) throws InterruptedException {
         EditText area = findViewById(R.id.area);
         EditText distance = findViewById(R.id.distance);
-        EditText hau = findViewById(R.id.HAU);
-        EditText transport = findViewById(R.id.transport);
-        EditText neighbors = findViewById(R.id.neighbors);
-        EditText ecology = findViewById(R.id.ecology);
+        Slider hau = findViewById(R.id.HAU);
+        Slider transport = findViewById(R.id.transport);
+        Slider neighbors = findViewById(R.id.neighbors);
+        Slider ecology = findViewById(R.id.ecology);
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.region);
 
         MyRequest myRequest = new MyRequest("data", new String[] {
                 area.getText().toString(),
                 distance.getText().toString(),
-                ecology.getText().toString(),
-                hau.getText().toString(),
-                transport.getText().toString(),
-                neighbors.getText().toString(),
+                String.valueOf(ecology.getValue()),
+                String.valueOf(hau.getValue()),
+                String.valueOf(transport.getValue()),
+                String.valueOf(neighbors.getValue()),
                 autoCompleteTextView.getText().toString()
         });
 
@@ -158,6 +159,9 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
 
         MyResponse response = server.getResponse();
         tv.setText(response.data);
+
+        WebActivity.lastLink = autoCompleteTextView.getText().toString();
+        WebActivity.lastCost = response.data;
     }
 
     public void goToLogin(View view) {

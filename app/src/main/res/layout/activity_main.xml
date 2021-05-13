@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,15 +23,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:layout_weight="4"
+                android:layout_weight="6"
                 android:onClick="goToLogin"
-                android:src="@drawable/ic_acc"
-                android:scaleType="center"/>
+                android:layout_marginStart="8dp"
+                android:src="@drawable/user2"/>
 
             <TextView
                 android:id="@+id/textView4"
@@ -38,6 +39,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
         </LinearLayout>
+
     </Toolbar>
 
     <HorizontalScrollView
@@ -66,33 +68,35 @@
             app:layout_constraintTop_toTopOf="parent">
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/gpsModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/border_main"
+                android:onClick="goToGPS"
                 android:orientation="vertical"
-                android:onClick="goToGPS">
+                >
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/smartphone"
-                    android:layout_margin="8dp"/>
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/smartphone" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/gps"
+                    android:textAlignment="center"
                     android:textColor="@color/text_color"
-                    android:textSize="30sp"
-                    android:textAlignment="center"/>
-            </LinearLayout>
+                    android:textSize="30sp" />
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/arModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -103,22 +107,23 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:src="@drawable/camera"
                     android:layout_margin="8dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/ar"
                     android:textColor="@color/text_color"
                     android:textSize="30sp"
+                    android:layout_alignParentBottom="true"
                     android:textAlignment="center"/>
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/webModule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -129,54 +134,64 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:src="@drawable/globe_grid"
                     android:layout_margin="8dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/web"
                     android:textColor="@color/text_color"
                     android:textSize="30sp"
+                    android:layout_alignParentBottom="true"
                     android:textAlignment="center"/>
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
     </HorizontalScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.33"
+        android:background="@drawable/window_border"
+        android:orientation="vertical">
 
-
-        <HorizontalScrollView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:background="@drawable/widnow_border">
+            android:layout_height="wrap_content"
+            android:text="Последние запросы"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <LinearLayout
                 android:id="@+id/request_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:divider="@drawable/separator"
+                android:dividerPadding="32dp"
+                android:showDividers="middle">
+
 
             </LinearLayout>
 
-        </HorizontalScrollView>
+        </ScrollView>
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/lastReq"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:layout_weight="1"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="@string/last_requests"-->
-        <!--            android:textColor="@color/text_color"-->
-        <!--            android:textSize="24sp" />-->
+    </LinearLayout>
 
-<!--    </LinearLayout>-->
+
 
 </LinearLayout>

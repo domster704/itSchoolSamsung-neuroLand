@@ -4,6 +4,7 @@
 
     <stroke android:color="@color/background_app_color"/>
 
-    <corners android:topLeftRadius="32dp"
-             android:topRightRadius="32dp"/>
+    <corners android:topLeftRadius="25dp"
+             android:topRightRadius="25dp"/>
+
 </shape>

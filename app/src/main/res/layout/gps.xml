@@ -21,7 +21,7 @@
             android:background="@drawable/border"
             android:onClick="goToMap"
             android:text="@string/map"
-            android:textColor="@color/text_color"
+            android:textColor="@color/white"
             android:textSize="36sp" />
 
         <Button
@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:background="@drawable/border"
             android:text="@string/cadastr_map"
-            android:textColor="@color/text_color"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:onClick="goToCadastMap"/>
     </LinearLayout>

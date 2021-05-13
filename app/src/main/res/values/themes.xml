@@ -11,7 +11,8 @@
         <item name="colorOnSecondary">@color/black</item>
     </style>
 
-    <style name="Theme.MyProject_NeuroLand.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.MyProject_NeuroLand.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

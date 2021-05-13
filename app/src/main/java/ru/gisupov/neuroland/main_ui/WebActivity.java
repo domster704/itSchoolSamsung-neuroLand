@@ -31,6 +31,9 @@ public class WebActivity extends AppCompatActivity {
         changeStatusBarColor();
     }
 
+    public static String lastLink = "";
+    public static String lastCost = "";
+
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -62,6 +65,9 @@ public class WebActivity extends AppCompatActivity {
         MyResponse myResponse = server.getResponse();
         cost = myResponse.data;
         tv.setText(cost);
+
+        lastLink = urlData;
+        lastCost = cost;
 
         if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
             MyRequest myRequest2 = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,

@@ -17,48 +17,94 @@
         android:paddingBottom="20dp"
         android:layout_margin="8dp">
 
-        <EditText
-            android:id="@+id/BeginLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/login"
-            android:textColor="@color/text_color"
-            app:backgroundTint="@color/text_hint"
-            android:textColorHint="@color/text_hint"
-            android:textSize="24sp" />
+<!--        <EditText-->
+<!--            android:id="@+id/BeginLogin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="@string/login"-->
+<!--            android:textColor="@color/text_color"-->
+<!--            app:backgroundTint="@color/text_hint"-->
+<!--            android:textColorHint="@color/text_hint"-->
+<!--            android:textSize="24sp" />-->
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            app:endIconMode="clear_text"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/BeginLogin"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:hint="@string/login"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:id="@+id/BeginPassword1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:hint="@string/password"-->
+<!--            android:textColor="@color/text_color"-->
+<!--            app:backgroundTint="@color/text_hint"-->
+<!--            android:textColorHint="@color/text_hint"-->
+<!--            android:textSize="24sp" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:endIconMode="password_toggle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/BeginPassword1"
-            android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/password"
-            android:textColor="@color/text_color"
-            app:backgroundTint="@color/text_hint"
-            android:textColorHint="@color/text_hint"
-            android:textSize="24sp" />
+            android:layout_width="match_parent"
+            android:hint="@string/password"/>
 
-        <EditText
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:id="@+id/BeginPassword2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:hint="@string/repeat_the_password"-->
+<!--            android:textColor="@color/text_color"-->
+<!--            app:backgroundTint="@color/text_hint"-->
+<!--            android:textColorHint="@color/text_hint"-->
+<!--            android:textSize="24sp" />-->
+    <com.google.android.material.textfield.TextInputLayout
+        app:endIconMode="password_toggle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/BeginPassword2"
-            android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/repeat_the_password"
-            android:textColor="@color/text_color"
-            app:backgroundTint="@color/text_hint"
-            android:textColorHint="@color/text_hint"
-            android:textSize="24sp" />
+            android:layout_width="match_parent"
+            android:hint="@string/repeat_the_password"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/regButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/border"
+            style="@style/Widget.MaterialComponents.Button"
             android:onClick="goToLoginAfterReg"
             android:text="@string/register"
-            android:textColor="@color/text_color"
-            android:textSize="30sp" />
+            android:textSize="30dp" />
 
     </LinearLayout>
 

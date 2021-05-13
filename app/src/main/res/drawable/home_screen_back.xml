@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-<!--    <gradient android:startColor="@color/home_screen_color1"-->
-<!--              android:centerColor="@color/home_screen_color2"-->
-<!--              android:endColor="@color/home_screen_color3"/>-->
-    <solid android:color="@color/home_screen_color1"/>
+    <gradient android:startColor="@color/home_screen_color1"
+              android:centerColor="@color/home_screen_color2"
+              android:endColor="@color/home_screen_color3"/>
+<!--    <solid android:color="@color/home_screen_color1"/>-->
 
-    <stroke android:color="@color/home_screen_color1"/>
+<!--    <stroke android:color="@color/home_screen_color1"/>-->
 </shape>

@@ -17,7 +17,7 @@ import ru.gisupov.neuroland.R;
 public class SettingsActivity extends AppCompatActivity {
 
 //    public static String ip = "https://neuroland-server.herokuapp.com/";
-    public static String ip = "http://78.85.248.2:80/";
+    public static String ip = "http://100.73.153.28:80/";
     private EditText ipEditText;
 
     @Override
@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
 //        }
 
         ipEditText = findViewById(R.id.ipEditText);
-        ipEditText.setHint(ip.substring(7, ip.length() - 5));
+        ipEditText.setText(ip);
 
         changeStatusBarColor();
     }

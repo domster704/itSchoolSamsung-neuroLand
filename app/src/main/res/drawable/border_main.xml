@@ -7,9 +7,9 @@
 
     <stroke android:color="@color/home_widget_color"/>
 
-    <corners android:radius="25dp" />
+    <corners android:radius="10dp" />
 
-    <size android:width="100dp"
+    <size android:width="102dp"
           android:height="100dp"/>
 
 </shape>

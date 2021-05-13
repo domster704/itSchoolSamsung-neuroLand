@@ -20,7 +20,6 @@
     <string name="shortReg">Пароль слишком короткий</string>
     <string name="some_useful_information">Полезная информация</string>
 
-
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>

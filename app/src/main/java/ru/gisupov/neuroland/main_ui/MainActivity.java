@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+        AddRequestView("XD", "XD1");
+        AddRequestView("XD", "XD2");
     }
 
     private void changeStatusBarColor() {
@@ -99,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        } else {
+            String cost = WebActivity.lastCost;
+            String link = WebActivity.lastLink;
+
+            if (!cost.isEmpty() && !link.isEmpty())
+                AddRequestView(link, cost);
         }
     }
 
@@ -106,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void goToGPS(View view) {

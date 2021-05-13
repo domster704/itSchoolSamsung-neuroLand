@@ -21,38 +21,80 @@
             android:layout_margin="12dp"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/area"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Площадь"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
+<!--            <EditText-->
+<!--                android:id="@+id/area"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:hint="Площадь"-->
+<!--                android:textColor="@color/text_color"-->
+<!--                android:textColorHint="@color/text_hint"-->
+<!--                android:textSize="24sp"-->
+<!--                app:backgroundTint="@color/text_hint" />-->
 
-            <EditText
-                android:id="@+id/distance"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                app:endIconMode="clear_text"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Расстояние до города"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
+                android:layout_width="match_parent"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <AutoCompleteTextView
-                android:id="@+id/region"
-                android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/area"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="Площадь"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                app:endIconMode="clear_text"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Область"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
+                android:layout_width="match_parent"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/distance"
+                    android:inputType="number"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:hint="@string/InputLink"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/distance"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="8dp"-->
+<!--                android:hint="Расстояние до города"-->
+<!--                android:textColor="@color/text_color"-->
+<!--                android:textColorHint="@color/text_hint"-->
+<!--                android:textSize="24sp"-->
+<!--                app:backgroundTint="@color/text_hint" />-->
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="16dp"
+                android:hint="Регион"
+                app:hintAnimationEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu" >
+
+                <AutoCompleteTextView
+                    android:imeActionLabel="Регион"
+                    android:id="@+id/region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/text_hint"
+                    app:backgroundTint="@color/text_hint"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
 
         </LinearLayout>
@@ -63,49 +105,61 @@
             android:layout_margin="12dp"
             android:orientation="vertical">
 
-            <EditText
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ЖКХ"
+                android:textSize="20sp"/>
+            <com.google.android.material.slider.Slider
                 android:id="@+id/HAU"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:valueFrom="1.0"
+                android:valueTo="5.0"
+                android:stepSize="0.1"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="ЖКХ"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
-
-            <EditText
+                android:text="Соседи"
+                android:textSize="20sp"/>
+            <com.google.android.material.slider.Slider
                 android:id="@+id/neighbors"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:valueFrom="1.0"
+                android:valueTo="5.0"
+                android:stepSize="0.1"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Соседи"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
-
-            <EditText
+                android:text="Транспорт"
+                android:textSize="20sp"/>
+            <com.google.android.material.slider.Slider
                 android:id="@+id/transport"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Транспорт"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
+                android:layout_width="match_parent"
+                android:valueFrom="1.0"
+                android:valueTo="5.0"
+                android:stepSize="0.1"
+                android:layout_marginBottom="12dp" />
 
-            <EditText
-                android:id="@+id/ecology"
+           <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:hint="Экология"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/text_hint"
-                android:textSize="24sp"
-                app:backgroundTint="@color/text_hint" />
+                android:text="Экология"
+                android:textSize="20sp"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/ecology"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:valueFrom="1.0"
+                android:valueTo="5.0"
+                android:stepSize="0.1"
+                android:layout_marginBottom="12dp" />
 
         </LinearLayout>
 
@@ -125,10 +179,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:background="@drawable/border"
+        style="@style/Widget.MaterialComponents.Button"
         android:onClick="getDataFromLink"
         android:text="Получить"
-        android:textColor="@color/text_color"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
