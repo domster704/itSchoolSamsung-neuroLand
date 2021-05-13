@@ -34,12 +34,12 @@
             android:layout_marginBottom="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/BeginLogin"
-                android:inputType="text"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:hint="@string/login"/>
+                android:layout_height="wrap_content"
+                android:hint="@string/login"
+                android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +61,7 @@
         android:layout_marginBottom="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/BeginPassword1"
             android:inputType="textPassword"
             android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
         android:layout_marginBottom="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/BeginPassword2"
             android:inputType="textPassword"
             android:layout_height="wrap_content"

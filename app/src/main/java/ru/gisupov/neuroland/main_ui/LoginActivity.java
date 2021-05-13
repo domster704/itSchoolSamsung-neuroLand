@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,9 +17,11 @@ import ru.gisupov.neuroland.MyRequest;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
-public class LoginActivity extends AppCompatActivity {
 
-    public final static int RESULT_FROM_REG_ACTIVITY = 10;
+/**
+ * Активность с возможностью авторизации пользователя
+ */
+public class LoginActivity extends AppCompatActivity {
 
     private EditText login;
     private EditText pass;
@@ -33,15 +34,23 @@ public class LoginActivity extends AppCompatActivity {
         login = (EditText) findViewById(R.id.EndLogin);
         pass = (EditText) findViewById(R.id.EndPassword);
 
-        if (!RegActivity.userPasswordFromFile.isEmpty() && !RegActivity.userLoginFromFile.isEmpty()) {
-            login.setText(RegActivity.userPasswordFromFile);
-            pass.setText(RegActivity.userLoginFromFile);
-        }
-
         changeStatusBarColor();
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Автоматическая установка логина и пароля в поля ввода
+        if (!RegActivity.userPasswordFromFile.isEmpty() && !RegActivity.userLoginFromFile.isEmpty()) {
+            login.setText(RegActivity.userPasswordFromFile);
+            pass.setText(RegActivity.userLoginFromFile);
+        }
+    }
+
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -50,27 +59,19 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Переход на Reg активность
+     */
     public void goToReg(View view) {
         Intent intent = new Intent(this, RegActivity.class);
-        startActivityForResult(intent, RESULT_FROM_REG_ACTIVITY);
+        startActivity(intent);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RESULT_FROM_REG_ACTIVITY) {
-            EditText loginView = (EditText) findViewById(R.id.EndLogin);
-            EditText passView = (EditText) findViewById(R.id.EndPassword);
-            if (resultCode == RESULT_OK) {
-                assert data != null;
-                String userLogin = data.getStringExtra(RegActivity.REG_ACTIVITY_USER_LOGIN);
-                String userPassword = data.getStringExtra(RegActivity.REG_ACTIVITY_USER_PASSWORD);
-                loginView.setText(userLogin);
-                passView.setText(userPassword);
-            }
-        }
-    }
-
+    /**
+     * Переход на главную активность после успешной авторизации
+     * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
+     * при взаимодействии с сервером
+     */
     public void goToHomeAfterLogin(View view) throws InterruptedException {
         MyRequest myRequestAuth = new MyRequest("login", new String[] {login.getText().toString(), pass.getText().toString()});
         ClientServer server = new ClientServer();

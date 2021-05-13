@@ -10,6 +10,12 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import ru.gisupov.neuroland.main_ui.SettingsActivity;
 
+/**
+ * Класс для обращения к серверую.
+ * Использует библиотеку okhttp3
+ * Использует класс MyRequest для отправки запросов и
+ * класс MyResponse для принятия ответов
+ */
 public class HttpService {
 
     private static String url = SettingsActivity.ip;
@@ -18,6 +24,13 @@ public class HttpService {
 
     public HttpService() {}
 
+    /**
+     * Делает запрос на веб-сервер и получает от него ответ
+     * @param json Данные запроса
+     * @param doing Действие, которое необхожимо выполнить веб серверу (../login, ../register)
+     * @return Объект класса MyResponse, который хранит в себе данные от сервера
+     * @throws IOException
+     */
     public String post(String json, String doing) throws IOException {
 
         RequestBody body = RequestBody.create(

@@ -1,5 +1,8 @@
 package ru.gisupov.neuroland;
 
+/**
+ * Класс для запросов к серверу
+ */
 public class MyRequest {
     public String doing;
     public String json;
@@ -9,6 +12,11 @@ public class MyRequest {
         this.json = ConvertDataToJson(data);
     }
 
+    /**
+     * Конвертирует массив строк в json-строку
+     * @param data Массив строк, которые будут конвертироваться в json
+     * @return Json-строку
+     */
     protected String ConvertDataToJson(String data[]) {
         StringBuilder newJson = new StringBuilder();
         newJson.append("{");

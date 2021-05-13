@@ -1,6 +1,5 @@
 package ru.gisupov.neuroland.main_ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,17 +15,21 @@ import android.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-
-import com.google.android.material.tabs.TabLayout;
-
 import ru.gisupov.neuroland.ClientServer;
 import ru.gisupov.neuroland.MyRequest;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
+/**
+ * Гланвая активность всего приложения.
+ * Показывает последние запросы пользователя, а также позволяет переходить к
+ * другим важным активностям
+ *
+ * @author domster704
+ * @version 0.1.2
+ * @since 2020-12-27
+ */
 public class MainActivity extends AppCompatActivity {
-
-    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         changeStatusBarColor();
 
+        // Создание тул-бара с меню
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("NeuroLand");
         toolbar.inflateMenu(R.menu.menu_toolbar);
@@ -56,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         AddRequestView("XD", "XD2");
     }
 
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -63,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.home_screen_color1));
     }
 
+    /**
+     * Добавляет в активность request.xml, содержащий в себе
+     * информацию о последнем запросе
+     *
+     * @param link Ссылка или название региона последнего запроса
+     * @param cost Цена последнего запроса
+     */
     public void AddRequestView(String link, String cost) {
 
         ViewGroup viewGroup = findViewById(R.id.request_layout);
@@ -85,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
         addDataToLastRequest();
     }
 
+    /**
+     * Функция, которая решает, когда надо вызывать функцию AddRequestView
+     */
     private void addDataToLastRequest() {
         if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
             ClientServer server = new ClientServer();
@@ -116,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * onPrepareOptionsMenu также вызывается перед отображением действия,
+     * а также каждый раз, когда меню параметров становится недействительным.
+     *
+     * Обычно вызывается, если нужно если требуется обновить меню во время работы программы
+     *
+     */
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
@@ -123,21 +147,33 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Переход на GPS активность
+     */
     public void goToGPS(View view) {
         Intent intent = new Intent(this, GPSActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Переход на Login активность
+     */
     public void goToLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Переход на AR активность
+     */
     public void goToAr(View view) {
         Intent intent = new Intent(this, ARActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Переход на Web активность
+     */
     public void goToWeb(View view) {
         Intent intent = new Intent(this, WebActivity.class);
         startActivity(intent);

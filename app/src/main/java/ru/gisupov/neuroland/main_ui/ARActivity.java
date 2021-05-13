@@ -3,19 +3,18 @@ package ru.gisupov.neuroland.main_ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import ru.gisupov.neuroland.R;
 
+/**
+ * Активность с AR и выбором моделей
+ */
 public class ARActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +25,9 @@ public class ARActivity extends AppCompatActivity {
         changeStatusBarColor();
     }
 
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -37,10 +39,5 @@ public class ARActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
-    }
-
-    public void goToLogin(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
     }
 }

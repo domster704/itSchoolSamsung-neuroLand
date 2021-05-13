@@ -35,7 +35,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/EndLogin"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:hint="@string/login"/>

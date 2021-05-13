@@ -2,9 +2,9 @@
     <string name="app_name">MyProject_NeuroLand</string>
 
     <string name="last_requests">Last requests</string>
-    <string name="gps">GPS</string>
+    <string name="gps">Карты</string>
     <string name="ar">AR</string>
-    <string name="web">WEB</string>
+    <string name="web">Проверка\nучастка</string>
     <string name="cadastr_map">Кадастровая карта</string>
     <string name="login">Login</string>
     <string name="password">Password</string>

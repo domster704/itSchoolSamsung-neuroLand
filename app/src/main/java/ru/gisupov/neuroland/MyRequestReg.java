@@ -1,13 +1,14 @@
 package ru.gisupov.neuroland;
 
-import java.io.IOException;
 
+/**
+ * Наследник класса MyRequest.
+ * Нужен для создания запроса на регистрацию
+ */
 public class MyRequestReg extends MyRequest {
-    private String name;
-    private String pass1;
-    private String pass2;
-
-    public String json;
+    private final String name;
+    private final String pass1;
+    private final String pass2;
 
     public MyRequestReg(String doing, String[] data) {
         super(doing, new String[] {data[0], data[1]});
@@ -16,6 +17,10 @@ public class MyRequestReg extends MyRequest {
         this.pass2 = data[2];
     }
 
+    /**
+     * Проверяет данные на корректность
+     * @return 1, если всё введено правильно, иначе текст ошибки
+     */
     public int checkNamePass() {
         short loginSize = (short) name.length();
         short passSize = (short)  pass1.length();

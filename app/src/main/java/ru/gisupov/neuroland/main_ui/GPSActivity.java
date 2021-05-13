@@ -1,21 +1,21 @@
 package ru.gisupov.neuroland.main_ui;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.core.content.ContextCompat;
 
 import ru.gisupov.neuroland.R;
 
+
+/**
+ * Активность позволяющая переходить на активности с картами
+ */
 public class GPSActivity extends Activity {
 
     @Override
@@ -26,6 +26,9 @@ public class GPSActivity extends Activity {
         changeStatusBarColor();
     }
 
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -40,18 +43,19 @@ public class GPSActivity extends Activity {
     }
 
 
+    /**
+     * Переход на Maps активность
+     */
     public void goToMap(View view) {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Переход на MapsCadast активность
+     */
     public void goToCadastMap(View view) {
         Intent intent = new Intent(this, MapsCadastActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToLogin(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

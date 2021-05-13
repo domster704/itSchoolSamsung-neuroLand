@@ -5,28 +5,22 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.IOException;
-
 import ru.gisupov.neuroland.ClientServer;
-import ru.gisupov.neuroland.MyRequest;
-import ru.gisupov.neuroland.MyRequestAuth;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 import ru.gisupov.neuroland.MyRequestReg;
 
-public class RegActivity extends AppCompatActivity {
 
-    public final static String REG_ACTIVITY_USER_LOGIN = "com.example.myproject_neuroland.main_ui.RegActivity.LOGIN";
-    public final static String REG_ACTIVITY_USER_PASSWORD = "com.example.myproject_neuroland.main_ui.RegActivity.PASSWORD";
+/**
+ * Активность с возможностью регистрации пользователя
+ */
+public class RegActivity extends AppCompatActivity {
 
     public static String userLoginFromFile = "";
     public static String userPasswordFromFile = "";
@@ -39,6 +33,9 @@ public class RegActivity extends AppCompatActivity {
         changeStatusBarColor();
     }
 
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -46,6 +43,11 @@ public class RegActivity extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.background_app_color));
     }
 
+    /**
+     * Переход на Login активность при успешной регистрации
+     * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
+      * при взаимодействии с сервером
+     */
     public void goToLoginAfterReg(View view) throws InterruptedException {
         EditText userName = (EditText) findViewById(R.id.BeginLogin);
         EditText userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
@@ -56,6 +58,7 @@ public class RegActivity extends AppCompatActivity {
         String pass2 = userPassword2.getText().toString();
 
         MyRequestReg myRequestReg = new MyRequestReg("register", new String[] {login, pass1, pass2});
+
         if (myRequestReg.checkNamePass() != 1) {
             Toast.makeText(getApplicationContext(), myRequestReg.checkNamePass(), Toast.LENGTH_SHORT).show();
             return;
@@ -69,11 +72,8 @@ public class RegActivity extends AppCompatActivity {
             userLoginFromFile = login;
             userPasswordFromFile = pass1;
 
-            Intent answer = new Intent();
-            answer.putExtra(REG_ACTIVITY_USER_LOGIN, userLoginFromFile);
-            answer.putExtra(REG_ACTIVITY_USER_PASSWORD, userPasswordFromFile);
-            setResult(RESULT_OK, answer);
-            finish();
+            Intent answer = new Intent(this, LoginActivity.class);
+            startActivity(answer);
         }
     }
 }

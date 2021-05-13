@@ -10,10 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.google.android.material.slider.Slider;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -22,9 +20,12 @@ import ru.gisupov.neuroland.MyRequest;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
 
-
+/**
+ * Активность для получения цены земельного участка из введённых пользователем дынных
+ */
 public class WebAdditionalModeActivity extends AppCompatActivity {
 
+    // Список регионов страны
     private static final String[] city = {"Камчатский край",
             "Марий Эл",
             "Чечня",
@@ -120,6 +121,9 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         changeStatusBarColor();
     }
 
+    /**
+     * Меняет цвет строки состояния (строка уведомлений)
+     */
     private void changeStatusBarColor() {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -133,6 +137,11 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Функция для получения цены из данных, введённых пользователем
+     * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
+     * при взаимодействии с сервером
+     */
     public void getDataFromLink(View view) throws InterruptedException {
         EditText area = findViewById(R.id.area);
         EditText distance = findViewById(R.id.distance);
