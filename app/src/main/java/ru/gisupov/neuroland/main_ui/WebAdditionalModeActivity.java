@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.material.slider.Slider;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -139,8 +141,9 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
 
     /**
      * Функция для получения цены из данных, введённых пользователем
+     *
      * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-     * при взаимодействии с сервером
+     *                              при взаимодействии с сервером
      */
     public void getDataFromLink(View view) throws InterruptedException {
         EditText area = findViewById(R.id.area);
@@ -151,7 +154,7 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         Slider ecology = findViewById(R.id.ecology);
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.region);
 
-        MyRequest myRequest = new MyRequest("data", new String[] {
+        MyRequest myRequest = new MyRequest("data", new String[]{
                 area.getText().toString(),
                 distance.getText().toString(),
                 String.valueOf(ecology.getValue()),
@@ -163,14 +166,23 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.textCost);
 
-        ClientServer server = new ClientServer();
-        server.makeRequest(myRequest);
+        try {
+            ClientServer server = new ClientServer();
+            server.makeRequest(myRequest);
 
-        MyResponse response = server.getResponse();
-        tv.setText(response.data);
+            MyResponse response = server.getResponse();
+            tv.setText(response.data);
 
-        WebActivity.lastLink = autoCompleteTextView.getText().toString();
-        WebActivity.lastCost = response.data;
+            WebActivity.lastLink = autoCompleteTextView.getText().toString();
+            WebActivity.lastCost = response.data;
+            WebActivity.lastParameters = new String[]{ String.valueOf(ecology.getValue()),
+                                                       String.valueOf(hau.getValue()),
+                                                       String.valueOf(transport.getValue()),
+                                                       String.valueOf(neighbors.getValue()) };
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Ошибка", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void goToLogin(View view) {

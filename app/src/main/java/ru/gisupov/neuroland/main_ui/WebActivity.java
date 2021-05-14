@@ -33,6 +33,7 @@ public class WebActivity extends AppCompatActivity {
     // Ссылка и цена из последнего запроса
     public static String lastLink = "";
     public static String lastCost = "";
+    public static String[] lastParameters = new String[] {"3.0", "3.0", "3.0", "3.0"};
 
     /**
      * Меняет цвет строки состояния (строка уведомлений)
@@ -65,27 +66,34 @@ public class WebActivity extends AppCompatActivity {
         String cost;
 
         MyRequest myRequest = new MyRequest("url", new String[] {urlData});
-        ClientServer server = new ClientServer();
-        server.makeRequest(myRequest);
-
-        MyResponse myResponse = server.getResponse();
-        cost = myResponse.data;
-        tv.setText(cost);
-
-        lastLink = urlData;
-        lastCost = cost;
-
-        // Изменение последнего запроса в базе данных текущего пользователя
-        if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
-            MyRequest myRequest2 = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
-                    urlData + " " + cost});
-
+        try {
+            ClientServer server = new ClientServer();
             server.makeRequest(myRequest);
 
-            MyResponse myResponse2 = server.getResponse();
+            MyResponse myResponse = server.getResponse();
 
-            if (myResponse2.data.equals("True"))
-                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+            String[] data = myResponse.data.split(";");
+            cost = data[0];
+            tv.setText(cost);
+
+            lastLink = data[data.length - 1];
+            lastCost = cost;
+            lastParameters = new String[] {data[1], data[2], data[3], data[4]};
+
+            // Изменение последнего запроса в базе данных текущего пользователя
+            if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+                MyRequest myRequest2 = new MyRequest("changeContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile,
+                        urlData + " " + cost});
+
+                server.makeRequest(myRequest);
+
+                MyResponse myResponse2 = server.getResponse();
+
+                if (myResponse2.data.equals("True"))
+                    Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Ошибка", Toast.LENGTH_SHORT).show();
         }
     }
 }

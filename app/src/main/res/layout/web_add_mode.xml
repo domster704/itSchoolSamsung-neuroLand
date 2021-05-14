@@ -60,7 +60,7 @@
                     android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:hint="@string/InputLink"/>
+                    android:hint="@string/distance_to_city"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

@@ -15,6 +15,9 @@ import android.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ru.gisupov.neuroland.ClientServer;
 import ru.gisupov.neuroland.MyRequest;
 import ru.gisupov.neuroland.MyResponse;
@@ -29,7 +32,19 @@ import ru.gisupov.neuroland.R;
  * @version 0.1.2
  * @since 2020-12-27
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    static class RequestForm {
+        public View view;
+        public boolean isPressed = false;
+
+        public RequestForm(View view) {
+            this.view = view;
+        }
+    }
+
+    private ArrayList<RequestForm> requestForms = new ArrayList<>();
+    private int requestID = 242487284;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        AddRequestView("XD", "XD1");
-        AddRequestView("XD", "XD2");
+        AddRequestView("Удмуртия", "275874.28");
+        AddRequestView("Московская область", "1765890.95");
     }
 
     /**
@@ -82,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup viewGroup = findViewById(R.id.request_layout);
 
         View child = LayoutInflater.from(this).inflate(R.layout.request, null);
+        child.setId(requestID);
+        requestID++;
+        child.setOnClickListener(this);
 
         viewGroup.addView(child);
 
@@ -90,8 +108,34 @@ public class MainActivity extends AppCompatActivity {
 
         TextView linkCostTV = child.findViewById(R.id.link_cost);
         linkCostTV.setText(cost);
+
+        int[] ids = new int[] {R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
+        String[] words = new String[] {"Экология", "ЖКХ", "Соседи", "Транспорт"};
+
+        for (int i = 0; i < ids.length; i++) {
+            TextView tv = child.findViewById(ids[i]);
+            tv.setText(WebActivity.lastParameters[i] + "    " + words[i]);
+        }
+
+        requestForms.add(new RequestForm(child));
     }
 
+    @Override
+    public void onClick(View v) {
+        for (int i = 0; i < requestForms.size(); i++) {
+            if (v == requestForms.get(i).view && !requestForms.get(i).isPressed) {
+
+                requestForms.get(i).isPressed = true;
+                requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.VISIBLE);
+
+            } else if (v == requestForms.get(i).view && requestForms.get(i).isPressed) {
+
+                requestForms.get(i).isPressed = false;
+                requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.GONE);
+
+            }
+        }
+    }
 
     @Override
     protected void onResume() {
@@ -100,12 +144,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Функция, которая решает, когда надо вызывать функцию AddRequestView
+     * Функция, которая решает, когда надо вызывать функцию {@link #AddRequestView(String, String)}
      */
     private void addDataToLastRequest() {
         if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
             ClientServer server = new ClientServer();
-            MyRequest myRequest = new MyRequest("getContent", new String[] {RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile});
+            MyRequest myRequest = new MyRequest("getContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile});
             try {
                 server.makeRequest(myRequest);
                 MyResponse response = server.getResponse();
@@ -113,7 +157,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     String[] data = response.data.split(" ");
                     AddRequestView(data[0].substring(0, 28) + "...", data[1]);
-                } catch (Exception ignore) { }
+                } catch (Exception ignore) {
+                }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -136,9 +181,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * onPrepareOptionsMenu также вызывается перед отображением действия,
      * а также каждый раз, когда меню параметров становится недействительным.
-     *
+     * <p>
      * Обычно вызывается, если нужно если требуется обновить меню во время работы программы
-     *
      */
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
