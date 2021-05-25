@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +26,11 @@ public class RegActivity extends AppCompatActivity {
     public static String userLoginFromFile = "";
     public static String userPasswordFromFile = "";
 
+    public static final String SAVED_LOGIN = "LOGIN";
+    public static final String SAVED_PASSWORD = "PASSWORD";
+
+    EditText userName, userPassword1, userPassword2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +50,15 @@ public class RegActivity extends AppCompatActivity {
     }
 
     /**
-     * Переход на Login активность при успешной регистрации
-     * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-      * при взаимодействии с сервером
+     * Проверка правильности регистрации пользователя и успешной отправки
+     * запроса веб-серверу на регистрацию
+     * @return true и false в зависимости от результата
+     * @throws InterruptedException
      */
-    public void goToLoginAfterReg(View view) throws InterruptedException {
-        EditText userName = (EditText) findViewById(R.id.BeginLogin);
-        EditText userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
-        EditText userPassword2 = (EditText) findViewById(R.id.BeginPassword2);
+    public boolean isRegistered() throws InterruptedException {
+        userName = (EditText) findViewById(R.id.BeginLogin);
+        userPassword1 = (EditText) findViewById(R.id.BeginPassword1);
+        userPassword2 = (EditText) findViewById(R.id.BeginPassword2);
 
         String login = userName.getText().toString();
         String pass1 = userPassword1.getText().toString();
@@ -61,7 +68,7 @@ public class RegActivity extends AppCompatActivity {
 
         if (myRequestReg.checkNamePass() != 1) {
             Toast.makeText(getApplicationContext(), myRequestReg.checkNamePass(), Toast.LENGTH_SHORT).show();
-            return;
+            return false;
         }
 
         ClientServer clientServer = new ClientServer();
@@ -69,9 +76,35 @@ public class RegActivity extends AppCompatActivity {
 
         MyResponse myResponse = clientServer.getResponse();
         if (myResponse.data.equals("True")) {
-            userLoginFromFile = login;
-            userPasswordFromFile = pass1;
+            configureData(login, pass1);
+            return true;
+        } else
+            return false;
+    }
 
+    /**
+     * Сохранение данных аккаунта в Android Preferences
+     * @param login логин пользователя
+     * @param password пароль пользователя
+     */
+    public void configureData(String login, String password) {
+        userPasswordFromFile = login;
+        userPasswordFromFile = password;
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(SAVED_LOGIN, userLoginFromFile);
+        editor.putString(SAVED_PASSWORD, userPasswordFromFile);
+        editor.apply();
+    }
+
+    /**
+     * Переход на Login активность при успешной регистрации
+     * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
+      * при взаимодействии с сервером
+     */
+    public void goToLoginAfterReg(View view) throws InterruptedException {
+        if (isRegistered()) {
             Intent answer = new Intent(this, LoginActivity.class);
             startActivity(answer);
         }

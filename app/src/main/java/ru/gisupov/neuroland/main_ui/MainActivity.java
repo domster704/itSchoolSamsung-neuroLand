@@ -1,6 +1,7 @@
 package ru.gisupov.neuroland.main_ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import ru.gisupov.neuroland.ClientServer;
 import ru.gisupov.neuroland.MyRequest;
@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         changeStatusBarColor();
 
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        RegActivity.userLoginFromFile = sharedPreferences.getString(RegActivity.SAVED_LOGIN, "");
+        RegActivity.userPasswordFromFile = sharedPreferences.getString(RegActivity.SAVED_PASSWORD, "");
+
+        Toast.makeText(getApplicationContext(), RegActivity.userLoginFromFile, Toast.LENGTH_SHORT).show();
+
         // Создание тул-бара с меню
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("NeuroLand");
@@ -71,8 +77,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         });
 
-        AddRequestView("Удмуртия", "275874.28");
-        AddRequestView("Московская область", "1765890.95");
+//        AddRequestView("Удмуртия", "275874.28");
+        AddRequestView("Московская область", "1765890");
+        AddRequestView("Московская область", "2222220");
     }
 
     /**
@@ -96,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ViewGroup viewGroup = findViewById(R.id.request_layout);
 
-        View child = LayoutInflater.from(this).inflate(R.layout.request, null);
+        View child = LayoutInflater.from(this).inflate(R.layout.response_form, null);
         child.setId(requestID);
         requestID++;
         child.setOnClickListener(this);
@@ -109,12 +116,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView linkCostTV = child.findViewById(R.id.link_cost);
         linkCostTV.setText(cost);
 
-        int[] ids = new int[] {R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
-        String[] words = new String[] {"Экология", "ЖКХ", "Соседи", "Транспорт"};
+        int[] ids = new int[] {R.id.areaFrom, R.id.proximity, R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
+        String[] words = new String[] {"Площадь", "Расстояние до города", "Экология", "ЖКХ", "Соседи", "Транспорт"};
 
         for (int i = 0; i < ids.length; i++) {
             TextView tv = child.findViewById(ids[i]);
-            tv.setText(WebActivity.lastParameters[i] + "    " + words[i]);
+            if (i == 0 || i == 1)
+                tv.setText(WebActivity.lastParameters[i] + "    " + words[i]);
+            else
+                tv.setText(WebActivity.lastParameters[i] + "          " + words[i]);
         }
 
         requestForms.add(new RequestForm(child));

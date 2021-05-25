@@ -33,7 +33,7 @@ public class WebActivity extends AppCompatActivity {
     // Ссылка и цена из последнего запроса
     public static String lastLink = "";
     public static String lastCost = "";
-    public static String[] lastParameters = new String[] {"3.0", "3.0", "3.0", "3.0"};
+    public static String[] lastParameters = new String[] { "12 сот", "24 км ", "3.0", "3.0", "3.0", "3.0",};
 
     /**
      * Меняет цвет строки состояния (строка уведомлений)
@@ -76,9 +76,9 @@ public class WebActivity extends AppCompatActivity {
             cost = data[0];
             tv.setText(cost);
 
-            lastLink = data[data.length - 1];
+            lastLink = data[5];
             lastCost = cost;
-            lastParameters = new String[] {data[1], data[2], data[3], data[4]};
+            lastParameters = new String[] { data[6] + " сот", data[7] + " км ", data[1], data[2], data[3], data[4]};
 
             // Изменение последнего запроса в базе данных текущего пользователя
             if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {

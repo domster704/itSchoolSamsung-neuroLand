@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -82,6 +83,13 @@ public class LoginActivity extends AppCompatActivity {
         if (myResponseAuth.data.equals("True")) {
             RegActivity.userPasswordFromFile = pass.getText().toString();
             RegActivity.userLoginFromFile = login.getText().toString();
+
+            SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(RegActivity.SAVED_LOGIN, RegActivity.userLoginFromFile);
+            editor.putString(RegActivity.SAVED_PASSWORD, RegActivity.userPasswordFromFile);
+            editor.apply();
+
             Toast.makeText(getApplicationContext(), R.string.successLogin, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -39,14 +39,14 @@ public class HttpService {
                 json
         );
 
-        okhttp3.Request request = new Request.Builder()
+        Request request = new Request.Builder()
                 .url(url + doing)
                 .post(body)
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
 
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+            if (!response.isSuccessful()) throw new IOException("Error " + response);
 
             assert response.body() != null;
             return Objects.requireNonNull(response.body()).string();
