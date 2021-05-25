@@ -155,8 +155,8 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.region);
 
         MyRequest myRequest = new MyRequest("data", new String[]{
-                area.getText().toString() + " сот",
-                distance.getText().toString() + "км ",
+                area.getText().toString(),
+                distance.getText().toString(),
                 String.valueOf(ecology.getValue()),
                 String.valueOf(hau.getValue()),
                 String.valueOf(transport.getValue()),
@@ -173,11 +173,14 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
             MyResponse response = server.getResponse();
             tv.setText(response.data);
 
+            String[] data = response.data.split(";");
+            tv.setText(data[0]);
+
             WebActivity.lastLink = autoCompleteTextView.getText().toString();
             WebActivity.lastCost = response.data;
             WebActivity.lastParameters = new String[]{
-                    area.getText().toString(),
-                    distance.getText().toString(),
+                    area.getText().toString() + " сот",
+                    distance.getText().toString() + "км ",
                     String.valueOf(ecology.getValue()),
                     String.valueOf(hau.getValue()),
                     String.valueOf(transport.getValue()),
