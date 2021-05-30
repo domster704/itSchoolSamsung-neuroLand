@@ -178,7 +178,7 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
 
             WebActivity.lastLink = autoCompleteTextView.getText().toString();
             WebActivity.lastCost = response.data;
-            WebActivity.lastParameters = new String[]{
+            WebActivity.lastParameters = new String[] {
                     area.getText().toString() + " сот",
                     distance.getText().toString() + "км ",
                     String.valueOf(ecology.getValue()),

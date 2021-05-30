@@ -44,8 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onResume();
         // Автоматическая установка логина и пароля в поля ввода
         if (!RegActivity.userPasswordFromFile.isEmpty() && !RegActivity.userLoginFromFile.isEmpty()) {
-            login.setText(RegActivity.userPasswordFromFile);
-            pass.setText(RegActivity.userLoginFromFile);
+            login.setText(RegActivity.userLoginFromFile);
+            pass.setText(RegActivity.userPasswordFromFile);
         }
     }
 
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
             RegActivity.userPasswordFromFile = pass.getText().toString();
             RegActivity.userLoginFromFile = login.getText().toString();
 
-            SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString(RegActivity.SAVED_LOGIN, RegActivity.userLoginFromFile);
             editor.putString(RegActivity.SAVED_PASSWORD, RegActivity.userPasswordFromFile);

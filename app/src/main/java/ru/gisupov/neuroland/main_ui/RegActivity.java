@@ -91,7 +91,7 @@ public class RegActivity extends AppCompatActivity {
         userPasswordFromFile = login;
         userPasswordFromFile = password;
 
-        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(SAVED_LOGIN, userLoginFromFile);
         editor.putString(SAVED_PASSWORD, userPasswordFromFile);
@@ -101,7 +101,7 @@ public class RegActivity extends AppCompatActivity {
     /**
      * Переход на Login активность при успешной регистрации
      * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-      * при взаимодействии с сервером
+     * при взаимодействии с сервером
      */
     public void goToLoginAfterReg(View view) throws InterruptedException {
         if (isRegistered()) {

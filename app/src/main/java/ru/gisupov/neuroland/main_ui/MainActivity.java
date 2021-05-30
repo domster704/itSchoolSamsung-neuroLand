@@ -1,5 +1,6 @@
 package ru.gisupov.neuroland.main_ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<RequestForm> requestForms = new ArrayList<>();
     private int requestID = 242487284;
+    private boolean isPressedFromUser = false;
+    private ViewGroup viewGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         changeStatusBarColor();
 
-        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData",MODE_PRIVATE);
         RegActivity.userLoginFromFile = sharedPreferences.getString(RegActivity.SAVED_LOGIN, "");
         RegActivity.userPasswordFromFile = sharedPreferences.getString(RegActivity.SAVED_PASSWORD, "");
 
         Toast.makeText(getApplicationContext(), RegActivity.userLoginFromFile, Toast.LENGTH_SHORT).show();
+
 
         // Создание тул-бара с меню
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -77,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         });
 
-//        AddRequestView("Удмуртия", "275874.28");
+        viewGroup = findViewById(R.id.request_layout);
+
         AddRequestView("Московская область", "1765890");
-        AddRequestView("Московская область", "2222220");
     }
 
     /**
@@ -99,9 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param link Ссылка или название региона последнего запроса
      * @param cost Цена последнего запроса
      */
+    @SuppressLint("SetTextI18n")
     public void AddRequestView(String link, String cost) {
-
-        ViewGroup viewGroup = findViewById(R.id.request_layout);
 
         View child = LayoutInflater.from(this).inflate(R.layout.response_form, null);
         child.setId(requestID);
@@ -154,10 +157,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * Функция, которая решает, когда надо вызывать функцию {@link #AddRequestView(String, String)}
+     * Функция, которая решает, когда надо вызывать функцию {AddRequestView(String, String)}
      */
     private void addDataToLastRequest() {
-        if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {
+        if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty() && !isPressedFromUser) {
+            isPressedFromUser = true;
             ClientServer server = new ClientServer();
             MyRequest myRequest = new MyRequest("getContent", new String[]{RegActivity.userLoginFromFile, RegActivity.userPasswordFromFile});
             try {
@@ -177,8 +181,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String cost = WebActivity.lastCost;
             String link = WebActivity.lastLink;
 
-            if (!cost.isEmpty() && !link.isEmpty())
+            if (!cost.isEmpty() && !link.isEmpty()) {
                 AddRequestView(link, cost);
+            }
         }
     }
 
