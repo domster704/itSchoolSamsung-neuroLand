@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyProject_NeuroLand</string>
+    <string name="app_name">NeuroLand</string>
 
     <string name="last_requests">Last requests</string>
     <string name="gps">Карты</string>

@@ -136,16 +136,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         for (int i = 0; i < requestForms.size(); i++) {
-            if (v == requestForms.get(i).view && !requestForms.get(i).isPressed) {
-
+            if (v == requestForms.get(i).view && requestForms.get(i).isPressed) {
                 requestForms.get(i).isPressed = true;
                 requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.VISIBLE);
-
-            } else if (v == requestForms.get(i).view && requestForms.get(i).isPressed) {
-
-                requestForms.get(i).isPressed = false;
+            } else if (v == requestForms.get(i).view && !requestForms.get(i).isPressed) {
                 requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.GONE);
-
+                requestForms.get(i).isPressed = false;
             }
         }
     }

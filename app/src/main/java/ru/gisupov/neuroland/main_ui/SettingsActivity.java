@@ -17,8 +17,8 @@ import ru.gisupov.neuroland.R;
  */
 public class SettingsActivity extends AppCompatActivity {
 
-//    public static String ip = "https://neuroland-server.herokuapp.com/";
-    public static String ip = "http://192.168.0.16:80/";
+    public static String ip = "https://neuroland-server.herokuapp.com/";
+//    public static String ip = "http://192.168.0.16:80/";
     private EditText ipEditText;
 
     @Override
