@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         changeStatusBarColor();
 
         SharedPreferences sharedPreferences = getSharedPreferences("UserData",MODE_PRIVATE);
@@ -75,6 +75,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         viewGroup = findViewById(R.id.request_layout);
+
+        SharedPreferences preferences = getSharedPreferences("WebData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        SharedPreferences preferences2 = getSharedPreferences("AppData", MODE_PRIVATE);
+        SharedPreferences.Editor editor2 = preferences2.edit();
+
+        for (int i = 0; i < preferences2.getInt("key", 0); i++) {
+            String[] data = preferences.getString(String.valueOf(i), "").split("-");
+            AddRequestView(data[0], data[1], data[2].replace("[", "").replace("]", "").split(","));
+        }
+
+        editor.apply();
+        editor2.apply();
     }
 
     /**
@@ -95,7 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * @param cost Цена последнего запроса
      */
     @SuppressLint("SetTextI18n")
-    public void AddRequestView(String link, String cost) {
+    public void AddRequestView(String link, String cost, @Nullable String[] params) {
+
+        if (params == null)
+            params = WebActivity.lastParameters;
 
         View child = LayoutInflater.from(this).inflate(R.layout.response_form, null);
         child.setId(requestID);
@@ -116,9 +133,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < ids.length; i++) {
             TextView tv = child.findViewById(ids[i]);
             if (i == 0 || i == 1)
-                tv.setText(WebActivity.lastParameters[i] + "    " + words[i]);
+                tv.setText(params[i] + "    " + words[i]);
             else
-                tv.setText(WebActivity.lastParameters[i] + "          " + words[i]);
+                tv.setText(params[i] + "          " + words[i]);
         }
 
         requestForms.add(new RequestForm(child));
@@ -157,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 try {
                     String[] data = response.data.split(" ");
-                    AddRequestView(data[0].substring(0, 28) + "...", data[1]);
+                    AddRequestView(data[0].substring(0, 28) + "...", data[1], null);
                 } catch (Exception ignore) {
                 }
 
@@ -169,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String link = WebActivity.lastLink;
 
             if (!cost.isEmpty() && !link.isEmpty()) {
-                AddRequestView(link, cost);
+                AddRequestView(link, cost, null);
                 WebActivity.lastLink = "";
                 WebActivity.lastCost = "";
             }

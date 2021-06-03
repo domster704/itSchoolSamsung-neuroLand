@@ -1,6 +1,7 @@
 package ru.gisupov.neuroland.main_ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -186,14 +187,25 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
                     String.valueOf(transport.getValue()),
                     String.valueOf(neighbors.getValue())
             };
+
+            SharedPreferences preferences2 = getSharedPreferences("WebData", MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = preferences2.edit();
+            editor2.putString(String.valueOf(WebActivity.lastIDLink), WebActivity.encode(WebActivity.lastLink, WebActivity.lastCost, WebActivity.lastParameters));
+            WebActivity.lastIDLink++;
+            editor2.apply();
+
+            SharedPreferences preferences = getSharedPreferences("AppData", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("key", WebActivity.lastIDLink);
+            editor.apply();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Ошибка", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void goToLogin(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
 }

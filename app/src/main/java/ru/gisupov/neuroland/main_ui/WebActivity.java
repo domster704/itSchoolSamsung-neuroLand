@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Arrays;
 
 import ru.gisupov.neuroland.ClientServer;
 import ru.gisupov.neuroland.MyRequest;
@@ -22,18 +25,24 @@ import ru.gisupov.neuroland.R;
  */
 public class WebActivity extends AppCompatActivity {
 
+    // Ссылка и цена из последнего запроса
+    public static String lastLink = "";
+    public static String lastCost = "";
+    public static int lastIDLink = 0;
+    public static String[] lastParameters = new String[] { "12 сот", "24 км ", "3.0", "3.0", "3.0", "3.0",};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.web);
 
+        SharedPreferences preferences = getSharedPreferences("AppData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        lastIDLink = preferences.getInt("key", 0);
+        editor.apply();
+
         changeStatusBarColor();
     }
-
-    // Ссылка и цена из последнего запроса
-    public static String lastLink = "";
-    public static String lastCost = "";
-    public static String[] lastParameters = new String[] { "12 сот", "24 км ", "3.0", "3.0", "3.0", "3.0",};
 
     /**
      * Меняет цвет строки состояния (строка уведомлений)
@@ -51,6 +60,10 @@ public class WebActivity extends AppCompatActivity {
     public void goToAdditionalMode(View view) {
         Intent intent = new Intent(this, WebAdditionalModeActivity.class);
         startActivity(intent);
+    }
+
+    public static String encode(String i1, String i2, String[] i3) {
+        return i1 + "-" + i2 + "-" + Arrays.toString(i3);
     }
 
     /**
@@ -91,6 +104,17 @@ public class WebActivity extends AppCompatActivity {
 
                 if (myResponse2.data.equals("True"))
                     Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+
+                SharedPreferences preferences = getSharedPreferences("WebData", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString(String.valueOf(lastIDLink), encode(lastLink, lastCost, lastParameters));
+                lastIDLink++;
+                editor.apply();
+
+                SharedPreferences preferences2 = getSharedPreferences("AppData", MODE_PRIVATE);
+                SharedPreferences.Editor editor2 = preferences2.edit();
+                editor2.putInt("key", lastIDLink);
+                editor2.apply();
             }
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), "Ошибка", Toast.LENGTH_SHORT).show();

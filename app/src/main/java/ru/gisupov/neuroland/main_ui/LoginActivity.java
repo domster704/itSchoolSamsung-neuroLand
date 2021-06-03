@@ -69,11 +69,12 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Переход на главную активность после успешной авторизации
+     *
      * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-     * при взаимодействии с сервером
+     *                              при взаимодействии с сервером
      */
     public void goToHomeAfterLogin(View view) throws InterruptedException {
-        MyRequest myRequestAuth = new MyRequest("login", new String[] {login.getText().toString(), pass.getText().toString()});
+        MyRequest myRequestAuth = new MyRequest("login", new String[]{login.getText().toString(), pass.getText().toString()});
         ClientServer server = new ClientServer();
         server.makeRequest(myRequestAuth);
 
