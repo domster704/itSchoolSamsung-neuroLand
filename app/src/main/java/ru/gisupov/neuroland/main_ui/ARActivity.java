@@ -31,7 +31,7 @@ public class ARActivity extends AppCompatActivity implements View.OnClickListene
         }
     }
 
-    private ArrayList<HousePicture> imageViews = new ArrayList<>();
+    private final ArrayList<HousePicture> imageViews = new ArrayList<>();
     private TextView modelTV;
 
     @Override
@@ -52,6 +52,10 @@ public class ARActivity extends AppCompatActivity implements View.OnClickListene
         }
     }
 
+    /**
+     * Выбирается модель на которую нажали
+     * @param v View, на которую нажали
+     */
     @Override
     public void onClick(View v) {
         for (int i = 0; i < imageViews.size(); i++) {
@@ -70,8 +74,6 @@ public class ARActivity extends AppCompatActivity implements View.OnClickListene
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.background_app_color));
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

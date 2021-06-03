@@ -52,5 +52,4 @@ public class HttpService {
             return Objects.requireNonNull(response.body()).string();
         }
     }
-
 }

@@ -74,7 +74,7 @@ public class WebActivity extends AppCompatActivity {
 
             String[] data = myResponse.data.split(";");
             cost = data[0];
-            tv.setText(cost);
+            tv.setText(cost + "₽");
 
             lastLink = data[5];
             lastCost = cost;

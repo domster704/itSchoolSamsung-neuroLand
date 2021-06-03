@@ -88,7 +88,7 @@ public class RegActivity extends AppCompatActivity {
      * @param password пароль пользователя
      */
     public void configureData(String login, String password) {
-        userPasswordFromFile = login;
+        userLoginFromFile = login;
         userPasswordFromFile = password;
 
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);

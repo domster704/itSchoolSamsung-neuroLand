@@ -54,4 +54,6 @@
     <string name="it_is_cad_map">Это кадастровые карта</string>
     <string name="distance_to_city">Расстояние до города</string>
     <string name="start">Запустить</string>
+    <string name="model_chosing">Выбрана модель</string>
+    <string name="model">Model</string>
 </resources>

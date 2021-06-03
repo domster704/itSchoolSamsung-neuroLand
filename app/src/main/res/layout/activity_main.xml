@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:layout_weight="6"
+                android:layout_weight="7"
                 android:onClick="goToLogin"
                 android:layout_marginStart="8dp"
                 android:src="@drawable/user2"/>

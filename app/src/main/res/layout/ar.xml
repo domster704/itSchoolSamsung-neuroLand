@@ -65,7 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Выбрана модель"
+            android:text="@string/model_chosing"
             android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="36sp" />
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="XD"
+            android:text="@string/model"
             android:textAlignment="center"
             android:textColor="@color/text_color"
             android:textSize="30sp" />

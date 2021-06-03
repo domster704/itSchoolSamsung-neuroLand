@@ -40,5 +40,4 @@ public class MyRequestReg extends MyRequest {
         }
         return 1;
     }
-
 }

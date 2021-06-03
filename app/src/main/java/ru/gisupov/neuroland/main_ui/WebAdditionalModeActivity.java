@@ -174,7 +174,7 @@ public class WebAdditionalModeActivity extends AppCompatActivity {
             tv.setText(response.data);
 
             String[] data = response.data.split(";");
-            tv.setText(data[0]);
+            tv.setText(data[0] + "₽");
 
             WebActivity.lastLink = autoCompleteTextView.getText().toString();
             WebActivity.lastCost = response.data;

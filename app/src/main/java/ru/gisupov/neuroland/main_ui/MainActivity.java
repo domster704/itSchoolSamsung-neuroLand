@@ -60,30 +60,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RegActivity.userLoginFromFile = sharedPreferences.getString(RegActivity.SAVED_LOGIN, "");
         RegActivity.userPasswordFromFile = sharedPreferences.getString(RegActivity.SAVED_PASSWORD, "");
 
-        Toast.makeText(getApplicationContext(), RegActivity.userLoginFromFile, Toast.LENGTH_SHORT).show();
-
-
         // Создание тул-бара с меню
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("NeuroLand");
         toolbar.inflateMenu(R.menu.menu_toolbar);
         toolbar.setOnMenuItemClickListener(item -> {
             int id = item.getItemId();
-            switch (id) {
-                case R.id.settings:
-                    Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                    startActivity(intent);
-                    return true;
-                case R.id.just:
-                    Toast.makeText(getApplicationContext(), "Просто", Toast.LENGTH_SHORT).show();
-                    return true;
+            if (id == R.id.settings) {
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(intent);
+                return true;
             }
             return true;
         });
 
         viewGroup = findViewById(R.id.request_layout);
-
-        AddRequestView("Московская область", "1765890");
     }
 
     /**
@@ -117,10 +108,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         linkTV.setText(link);
 
         TextView linkCostTV = child.findViewById(R.id.link_cost);
-        linkCostTV.setText(cost);
+        linkCostTV.setText(cost + "₽");
 
         int[] ids = new int[] {R.id.areaFrom, R.id.proximity, R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
-        String[] words = new String[] {"Площадь", "Расстояние до города", "Экология", "ЖКХ", "Соседи", "Транспорт"};
+        String[] words = new String[] {"Площадь", " Расстояние", "Экология", "ЖКХ", "Соседи", "Транспорт"};
 
         for (int i = 0; i < ids.length; i++) {
             TextView tv = child.findViewById(ids[i]);
@@ -136,10 +127,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         for (int i = 0; i < requestForms.size(); i++) {
-            if (v == requestForms.get(i).view && requestForms.get(i).isPressed) {
+            if (v == requestForms.get(i).view && !requestForms.get(i).isPressed) {
                 requestForms.get(i).isPressed = true;
                 requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.VISIBLE);
-            } else if (v == requestForms.get(i).view && !requestForms.get(i).isPressed) {
+            } else if (v == requestForms.get(i).view && requestForms.get(i).isPressed) {
                 requestForms.get(i).view.findViewById(R.id.hidden).setVisibility(View.GONE);
                 requestForms.get(i).isPressed = false;
             }
@@ -179,6 +170,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (!cost.isEmpty() && !link.isEmpty()) {
                 AddRequestView(link, cost);
+                WebActivity.lastLink = "";
+                WebActivity.lastCost = "";
             }
         }
     }
