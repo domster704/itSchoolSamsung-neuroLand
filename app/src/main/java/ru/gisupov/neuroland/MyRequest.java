@@ -14,6 +14,7 @@ public class MyRequest {
 
     /**
      * Конвертирует массив строк в json-строку
+     *
      * @param data Массив строк, которые будут конвертироваться в json
      * @return Json-строку
      */

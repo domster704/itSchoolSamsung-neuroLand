@@ -1,7 +1,6 @@
 package ru.gisupov.neuroland;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Objects;
 
 import okhttp3.MediaType;
@@ -23,11 +22,13 @@ public class HttpService {
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
-    public HttpService() {}
+    public HttpService() {
+    }
 
     /**
      * Делает запрос на веб-сервер и получает от него ответ
-     * @param json Данные запроса
+     *
+     * @param json  Данные запроса
      * @param doing Действие, которое необхожимо выполнить веб серверу (../login, ../register)
      * @return Объект класса MyResponse, который хранит в себе данные от сервера
      * @throws IOException

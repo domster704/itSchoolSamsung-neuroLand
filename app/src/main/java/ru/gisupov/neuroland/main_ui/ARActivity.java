@@ -1,10 +1,5 @@
 package ru.gisupov.neuroland.main_ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -12,6 +7,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -21,16 +19,6 @@ import ru.gisupov.neuroland.R;
  * Активность с AR и выбором моделей
  */
 public class ARActivity extends AppCompatActivity implements View.OnClickListener {
-
-    static class HousePicture {
-        public ImageView imageView;
-        public String name;
-
-        public HousePicture(ImageView iv, String name) {
-            this.imageView = iv;
-            this.name = name;
-        }
-    }
 
     private final ArrayList<HousePicture> imageViews = new ArrayList<>();
     private TextView modelTV;
@@ -55,6 +43,7 @@ public class ARActivity extends AppCompatActivity implements View.OnClickListene
 
     /**
      * Выбирается модель на которую нажали
+     *
      * @param v View, на которую нажали
      */
     @Override
@@ -80,5 +69,15 @@ public class ARActivity extends AppCompatActivity implements View.OnClickListene
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
         return true;
+    }
+
+    static class HousePicture {
+        public ImageView imageView;
+        public String name;
+
+        public HousePicture(ImageView iv, String name) {
+            this.imageView = iv;
+            this.name = name;
+        }
     }
 }

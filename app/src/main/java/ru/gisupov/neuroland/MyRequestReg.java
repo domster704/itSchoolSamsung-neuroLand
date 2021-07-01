@@ -11,7 +11,7 @@ public class MyRequestReg extends MyRequest {
     private final String pass2;
 
     public MyRequestReg(String doing, String[] data) {
-        super(doing, new String[] {data[0], data[1]});
+        super(doing, new String[]{data[0], data[1]});
         this.name = data[0];
         this.pass1 = data[1];
         this.pass2 = data[2];
@@ -19,11 +19,12 @@ public class MyRequestReg extends MyRequest {
 
     /**
      * Проверяет данные на корректность
+     *
      * @return 1, если всё введено правильно, иначе текст ошибки
      */
     public int checkNamePass() {
         short loginSize = (short) name.length();
-        short passSize = (short)  pass1.length();
+        short passSize = (short) pass1.length();
         if (!this.pass1.equals(this.pass2))
             return R.string.password_not_same;
         else if (loginSize == 0 && passSize == 0)

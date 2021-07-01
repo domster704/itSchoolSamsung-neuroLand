@@ -1,8 +1,5 @@
 package ru.gisupov.neuroland.main_ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,10 +9,13 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import ru.gisupov.neuroland.ClientServer;
+import ru.gisupov.neuroland.MyRequestReg;
 import ru.gisupov.neuroland.MyResponse;
 import ru.gisupov.neuroland.R;
-import ru.gisupov.neuroland.MyRequestReg;
 
 
 /**
@@ -23,12 +23,10 @@ import ru.gisupov.neuroland.MyRequestReg;
  */
 public class RegActivity extends AppCompatActivity {
 
-    public static String userLoginFromFile = "";
-    public static String userPasswordFromFile = "";
-
     public static final String SAVED_LOGIN = "LOGIN";
     public static final String SAVED_PASSWORD = "PASSWORD";
-
+    public static String userLoginFromFile = "";
+    public static String userPasswordFromFile = "";
     EditText userName, userPassword1, userPassword2;
 
     @Override
@@ -52,6 +50,7 @@ public class RegActivity extends AppCompatActivity {
     /**
      * Проверка правильности регистрации пользователя и успешной отправки
      * запроса веб-серверу на регистрацию
+     *
      * @return true и false в зависимости от результата
      * @throws InterruptedException
      */
@@ -64,7 +63,7 @@ public class RegActivity extends AppCompatActivity {
         String pass1 = userPassword1.getText().toString();
         String pass2 = userPassword2.getText().toString();
 
-        MyRequestReg myRequestReg = new MyRequestReg("register", new String[] {login, pass1, pass2});
+        MyRequestReg myRequestReg = new MyRequestReg("register", new String[]{login, pass1, pass2});
 
         if (myRequestReg.checkNamePass() != 1) {
             Toast.makeText(getApplicationContext(), myRequestReg.checkNamePass(), Toast.LENGTH_SHORT).show();
@@ -84,7 +83,8 @@ public class RegActivity extends AppCompatActivity {
 
     /**
      * Сохранение данных аккаунта в Android Preferences
-     * @param login логин пользователя
+     *
+     * @param login    логин пользователя
      * @param password пароль пользователя
      */
     public void configureData(String login, String password) {
@@ -100,8 +100,9 @@ public class RegActivity extends AppCompatActivity {
 
     /**
      * Переход на Login активность при успешной регистрации
+     *
      * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-     * при взаимодействии с сервером
+     *                              при взаимодействии с сервером
      */
     public void goToLoginAfterReg(View view) throws InterruptedException {
         if (isRegistered()) {

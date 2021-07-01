@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
@@ -36,15 +35,6 @@ import ru.gisupov.neuroland.R;
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    static class RequestForm {
-        public View view;
-        public boolean isPressed = false;
-
-        public RequestForm(View view) {
-            this.view = view;
-        }
-    }
-
     private ArrayList<RequestForm> requestForms = new ArrayList<>();
     private int requestID = 242487284;
     private boolean isPressedFromUser = false;
@@ -56,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         changeStatusBarColor();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("UserData",MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
         RegActivity.userLoginFromFile = sharedPreferences.getString(RegActivity.SAVED_LOGIN, "");
         RegActivity.userPasswordFromFile = sharedPreferences.getString(RegActivity.SAVED_PASSWORD, "");
 
@@ -127,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView linkCostTV = child.findViewById(R.id.link_cost);
         linkCostTV.setText(cost + "₽");
 
-        int[] ids = new int[] {R.id.areaFrom, R.id.proximity, R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
-        String[] words = new String[] {"Площадь", " Расстояние", "Экология", "ЖКХ", "Соседи", "Транспорт"};
+        int[] ids = new int[]{R.id.areaFrom, R.id.proximity, R.id.ec, R.id.hug, R.id.neigh, R.id.trans};
+        String[] words = new String[]{"Площадь", " Расстояние", "Экология", "ЖКХ", "Соседи", "Транспорт"};
 
         for (int i = 0; i < ids.length; i++) {
             TextView tv = child.findViewById(ids[i]);
@@ -242,6 +232,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void goToWeb(View view) {
         Intent intent = new Intent(this, WebActivity.class);
         startActivity(intent);
+    }
+
+    static class RequestForm {
+        public View view;
+        public boolean isPressed = false;
+
+        public RequestForm(View view) {
+            this.view = view;
+        }
     }
 }
 

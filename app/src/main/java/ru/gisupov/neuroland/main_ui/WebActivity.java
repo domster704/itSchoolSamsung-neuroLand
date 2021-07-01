@@ -1,8 +1,5 @@
 package ru.gisupov.neuroland.main_ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +9,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.Arrays;
 
@@ -29,7 +29,11 @@ public class WebActivity extends AppCompatActivity {
     public static String lastLink = "";
     public static String lastCost = "";
     public static int lastIDLink = 0;
-    public static String[] lastParameters = new String[] { "12 сот", "24 км ", "3.0", "3.0", "3.0", "3.0",};
+    public static String[] lastParameters = new String[]{"12 сот", "24 км ", "3.0", "3.0", "3.0", "3.0",};
+
+    public static String encode(String i1, String i2, String[] i3) {
+        return i1 + "-" + i2 + "-" + Arrays.toString(i3);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +66,11 @@ public class WebActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public static String encode(String i1, String i2, String[] i3) {
-        return i1 + "-" + i2 + "-" + Arrays.toString(i3);
-    }
-
     /**
      * Функция для получения цены из сслыки на земельный участок (с сайта {@link #domofond.ru}
+     *
      * @throws InterruptedException исключение ошибки, связанной с ипользование другого потока
-     * при взаимодействии с сервером
+     *                              при взаимодействии с сервером
      */
     public void getDataFromLink(View view) throws InterruptedException {
         EditText et = (EditText) findViewById(R.id.textLink);
@@ -78,7 +79,7 @@ public class WebActivity extends AppCompatActivity {
         String urlData = et.getText().toString();
         String cost;
 
-        MyRequest myRequest = new MyRequest("url", new String[] {urlData});
+        MyRequest myRequest = new MyRequest("url", new String[]{urlData});
         try {
             ClientServer server = new ClientServer();
             server.makeRequest(myRequest);
@@ -91,7 +92,7 @@ public class WebActivity extends AppCompatActivity {
 
             lastLink = data[5];
             lastCost = cost;
-            lastParameters = new String[] { data[6] + " сот", data[7] + " км ", data[1], data[2], data[3], data[4]};
+            lastParameters = new String[]{data[6] + " сот", data[7] + " км ", data[1], data[2], data[3], data[4]};
 
             // Изменение последнего запроса в базе данных текущего пользователя
             if (!RegActivity.userLoginFromFile.isEmpty() && !RegActivity.userPasswordFromFile.isEmpty()) {

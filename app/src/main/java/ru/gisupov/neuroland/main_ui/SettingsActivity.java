@@ -1,6 +1,5 @@
 package ru.gisupov.neuroland.main_ui;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -19,7 +18,7 @@ import ru.gisupov.neuroland.R;
 public class SettingsActivity extends AppCompatActivity {
 
     public static String ip = "https://neuroland-server.herokuapp.com/";
-//    public static String ip = "http://192.168.0.16:80/";
+    //    public static String ip = "http://192.168.0.16:80/";
     private EditText ipEditText;
 
     @Override
@@ -45,6 +44,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Сохранение нового ip-адресса
+     *
      * @param view
      */
     public void saveSettings(View view) {
